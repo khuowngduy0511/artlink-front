@@ -15,7 +15,7 @@ export const WS_URL = process.env.REACT_APP_REAL_API_WS_BASE_URL || "https://art
  * @param chatbox - chatbox to cast
  * @returns notification
  * @version 1.0.0
- * @author @thongnt0208
+ * @author 
  */
 export function castChatboxToNotification(chatbox: ChatboxItemType): notificationItemType {
   const notification: notificationItemType = {
@@ -38,12 +38,12 @@ export function castChatboxToNotification(chatbox: ChatboxItemType): notificatio
  * @param setIsLogin (opt) - set the login status
  * @returns true if the access token is valid, false otherwise
  * @version 1.2.0
- * @author @thongnt0208
+ * @author 
  */
 export async function ValidateAccessToken(setIsLogin?: (value: boolean) => void) {
   try {
     const res = await axiosPrivate.get(`${BASE_URL}/auth/validate-access-token`);
-    // console.log("ValidateAccessToken: ", res);
+     console.log("ValidateAccessToken: ", res);
 
     setIsLogin && setIsLogin(true);
     return true;
@@ -61,7 +61,6 @@ export async function ValidateAccessToken(setIsLogin?: (value: boolean) => void)
  * @param setChatNotis - set the chat notifications
  * @returns a promise that resolves to a function to close the WebSocket connection
  * @version 1.0.0
- * @author @thongnt0208
  */
 export async function GetNotificationsCurrentAccountRt(
   setChatNotis: (value: notificationItemType[]) => void
