@@ -42,14 +42,26 @@ export function castChatboxToNotification(chatbox: ChatboxItemType): notificatio
  */
 export async function ValidateAccessToken(setIsLogin?: (value: boolean) => void) {
   try {
-    const res = await axiosPrivate.get(`${BASE_URL}/auth/validate-access-token`);
-     console.log("ValidateAccessToken: ", res);
+    const authInfo = getAuthInfo();
+    
+    if (!authInfo?.accessToken) {
+      setIsLogin && setIsLogin(false);
+      return false;
+    }
 
-    setIsLogin && setIsLogin(true);
-    return true;
+    const res = await axiosPrivate.get(`/auth/validate-access-token`);
+    console.log("ValidateAccessToken: ", res);
+
+    if (res?.data?.isSuccess) {
+      setIsLogin && setIsLogin(true);
+      return true;
+    } else {
+      setIsLogin && setIsLogin(false);
+      return false;
+    }
   } catch (error) {
+    console.error("ValidateAccessToken error:", error);
     setIsLogin && setIsLogin(false);
-    // console.log(error);
     return false;
   }
 }

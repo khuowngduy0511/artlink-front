@@ -31,17 +31,33 @@ export const axiosPrivate = (() => {
   const responseInterceptor = instance.interceptors.response.use(
     (response) => response,
     async (error) => {
-      if (error?.response?.status === 403 && !error.config?.retry) {
-        error.config.retry = true; // Mark the request for retry to prevent infinite loop
+      const originalRequest = error.config;
+      
+      // Check for 401 Unauthorized and prevent infinite loops
+      if (error?.response?.status === 401 && !originalRequest?._retry) {
+        originalRequest._retry = true;
 
-        await refresh(); // Refresh the token
-
-        // Update the Authorization header with the new access token
-        error.config.headers["Authorization"] = `Bearer ${getAuthInfo()?.accessToken}`;
-
-        // Retry the request with the updated token
-        return instance(error.config);
+        try {
+          const newAccessToken = await refresh();
+          
+          if (newAccessToken) {
+            // Update the Authorization header with the new access token
+            originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+            
+            // Retry the original request with the updated token
+            return instance(originalRequest);
+          } else {
+            // Refresh failed, redirect to login
+            window.location.href = "/login";
+            return Promise.reject(error);
+          }
+        } catch (refreshError) {
+          // Refresh token expired or invalid, redirect to login
+          window.location.href = "/login";
+          return Promise.reject(refreshError);
+        }
       }
+      
       return Promise.reject(error);
     }
   );

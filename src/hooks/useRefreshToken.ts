@@ -2,15 +2,29 @@ import axios from "./useAxios";
 import { getAuthInfo, setNewAccessToken } from "../util/AuthUtil";
 
 const useRefreshToken = () => {
-  let authInfo = getAuthInfo();
-
   const refresh = async () => {
-    const body = { refreshToken: authInfo?.accessToken }; //current access token
-    const response = await axios.post("/auth/refresh-token", body);
-    if (response?.data?.isSuccess) {
-      setNewAccessToken(response?.data?.result?.accessToken);
+    const authInfo = getAuthInfo();
+    
+    if (!authInfo?.refreshToken) {
+      console.error("No refresh token found");
+      return null;
     }
-    return response?.data?.accessToken;
+
+    try {
+      const body = { refreshToken: authInfo.refreshToken }; // Send the actual refresh token
+      const response = await axios.post("/auth/refresh-token", body);
+      
+      if (response?.data?.isSuccess) {
+        const newAccessToken = response?.data?.result?.accessToken;
+        setNewAccessToken(newAccessToken);
+        return newAccessToken;
+      }
+      
+      return null;
+    } catch (error) {
+      console.error("Refresh token failed:", error);
+      return null;
+    }
   };
   return refresh;
 };
