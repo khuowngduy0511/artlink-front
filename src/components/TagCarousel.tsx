@@ -18,7 +18,10 @@ const TagCarousel: React.FC<TagsProps> = ({ tags }) => {
     return <Tag key={tag.id} id={tag.id} tagName={tag.tagName} color={randomColorCode} />;
   };
 
-  return <div className="tag-carousel flex">{tags.map((tag) => productTemplate(tag))}</div>;
+  // Handle null/undefined/non-array data
+  const validTags = Array.isArray(tags) ? tags : [];
+
+  return <div className="tag-carousel flex">{validTags.map((tag) => productTemplate(tag))}</div>;
 };
 
 export default TagCarousel;

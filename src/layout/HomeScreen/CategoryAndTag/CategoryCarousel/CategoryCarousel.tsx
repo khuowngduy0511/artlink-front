@@ -11,9 +11,12 @@ type CategoriesProps = {
 };
 
 const CategoryCarousel: React.FC<CategoriesProps> = ({ categories }) => {
+  // Handle null/undefined/non-array data
+  const validCategories = Array.isArray(categories) ? categories : [];
+  
   return (
     <div className="category-carousel flex">
-      {categories.map((category) => {
+      {validCategories.map((category) => {
         return (
           <Tag
             key={category.id}
