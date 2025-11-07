@@ -5,9 +5,9 @@ import { arraysNotisEqual } from "./util/ArrayUtil";
 import { getAuthInfo } from "./util/AuthUtil";
 
 export const BASE_URL_Elt =
-  process.env.REACT_APP_REAL_API_ELASTICSEARCH_URL || "https://dummyjson.com";
-export const BASE_URL = process.env.REACT_APP_REAL_API_BASE_URL || "https://dummyjson.com";
-export const WS_URL = process.env.REACT_APP_REAL_API_WS_BASE_URL || "https://dummyjson.com";
+  process.env.REACT_APP_REAL_API_ELASTICSEARCH_URL || "https://artlink-back.onrender.com";
+export const BASE_URL = process.env.REACT_APP_REAL_API_BASE_URL || "https://artlink-back.onrender.com";
+export const WS_URL = process.env.REACT_APP_REAL_API_WS_BASE_URL || "https://artlink-back.onrender.com";
 
 /**
  * This function casts a chatbox to a notification
