@@ -70,14 +70,28 @@ function App() {
   const [numNotis, setNumNotis] = useState(-3);
 
   useEffect(() => {
-    ValidateAccessToken(setIsLogin).then((res) => {
-      if (res) {
-        GetNotificationsCurrentAccountRt(setChatNotis);
-        GetChatboxesCurrentAccountRealtime(setChatboxes);
-      } else {
-        removeAuthInfo();
-      }
-    });
+    const authData = getAuthInfo();
+    
+    // Nếu có authInfo trong localStorage, validate token
+    if (authData?.accessToken) {
+      ValidateAccessToken(setIsLogin).then((res) => {
+        if (res) {
+          GetNotificationsCurrentAccountRt(setChatNotis);
+          GetChatboxesCurrentAccountRealtime(setChatboxes);
+        } else {
+          // Token không hợp lệ, xóa authInfo
+          removeAuthInfo();
+          setIsLogin(false);
+        }
+      }).catch((error) => {
+        console.error("ValidateAccessToken error:", error);
+        // Nếu lỗi network, giữ user đăng nhập (offline mode)
+        // Chỉ logout nếu token thật sự invalid
+      });
+    } else {
+      // Không có token, đảm bảo logout
+      setIsLogin(false);
+    }
   }, []);
 
   useEffect(() => {

@@ -70,10 +70,13 @@ const LoginScreen = ({ isLogin, setIsLogin, setAuthInfoChanged }: Props) => {
       ),
       life: 3000,
     });
+    
+    // Đợi 1 giây để đảm bảo authInfo đã được lưu vào localStorage
     setTimeout(() => {
       navigate(previousPath || "/");
-      setTimeout(() => window.location.reload(), 100);
-    }, 800);
+      // Reload để update header và WebSocket connections
+      setTimeout(() => window.location.reload(), 200);
+    }, 1000);
   };
 
   const handleLogin = () => {

@@ -44,23 +44,46 @@ export async function ValidateAccessToken(setIsLogin?: (value: boolean) => void)
   try {
     const authInfo = getAuthInfo();
     
+    console.log("[ValidateAccessToken] Starting validation...");
+    console.log("[ValidateAccessToken] Has authInfo:", !!authInfo);
+    console.log("[ValidateAccessToken] Has accessToken:", !!authInfo?.accessToken);
+    console.log("[ValidateAccessToken] API Base URL:", BASE_URL);
+    
     if (!authInfo?.accessToken) {
+      console.log("[ValidateAccessToken] No access token found");
       setIsLogin && setIsLogin(false);
       return false;
     }
 
     const res = await axiosPrivate.get(`/auth/validate-access-token`);
-    console.log("ValidateAccessToken: ", res);
+    console.log("[ValidateAccessToken] Response:", res.data);
 
-    if (res?.data?.isSuccess) {
+    if (res?.data) {
+      console.log("[ValidateAccessToken] ✅ Token is valid");
       setIsLogin && setIsLogin(true);
       return true;
     } else {
+      console.log("[ValidateAccessToken] ❌ Token is invalid");
       setIsLogin && setIsLogin(false);
       return false;
     }
-  } catch (error) {
-    console.error("ValidateAccessToken error:", error);
+  } catch (error: any) {
+    console.error("[ValidateAccessToken] ❌ Error:", error?.response?.status, error?.message);
+    
+    // Nếu lỗi 401, token không hợp lệ
+    if (error?.response?.status === 401) {
+      console.log("[ValidateAccessToken] Token expired or invalid");
+      setIsLogin && setIsLogin(false);
+      return false;
+    }
+    
+    // Nếu lỗi network, giữ login status (offline mode)
+    if (!error?.response) {
+      console.log("[ValidateAccessToken] Network error - keeping login status");
+      // Không set isLogin = false nếu là lỗi network
+      return false;
+    }
+    
     setIsLogin && setIsLogin(false);
     return false;
   }
