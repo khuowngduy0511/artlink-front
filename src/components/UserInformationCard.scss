@@ -1,0 +1,80 @@
+@import "./../const/variables.scss";
+.user-information-card-container {
+  width: fit-content;
+  margin: 0 auto;
+  .user-information-card {
+    box-shadow: none;
+    text-align: center;
+    .action-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      padding-top: 20px;
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .hire-info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .project-completed {
+          padding: 10px;
+          border: 1px solid $strong-200;
+          border-radius: 12px;
+          background-color: $bg-100;
+          color: $text-200;
+          font-size: 15px;
+          font-weight: 900;
+          margin-right: 10px;
+        }
+        .verrified-icon {
+          color: $strong-200;
+          font-size: 28px;
+        }
+      }
+      .top-button, .bot-button {
+        cursor: pointer;
+      }
+      .top-button {
+        background-color: $strong-200;
+        color: $bg-100;
+        border: 1px solid $strong-200;
+        &:hover {
+          background-color: $strong-100;
+          color: $bg-100;
+          border: 1px solid $strong-100;
+        }
+      }
+      .bot-button {
+        background-color: transparent;
+        color: $strong-200;
+        border: 1px solid $strong-200;
+        &:hover {
+          background-color: $primary-200;
+          color: $strong-200;
+          border: 1px solid $primary-200;
+        }
+      }
+    }
+    .p-card-content {
+      .avatar-container {
+        .avatar-image {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        }
+      }
+      .information-container {
+        h1 {
+          color: $strong-200;
+        }
+      }
+    }
+  }
+}

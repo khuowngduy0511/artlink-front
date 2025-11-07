@@ -1,0 +1,55 @@
+@import "../../const/variables.scss";
+
+.chatbox-item,
+chatbox-item-selecting {
+  padding: 10px;
+  width: 100%;
+  border-radius: $borderRadius-100;
+  position: relative;
+  //   .chatbox-item-avatar {
+  //   }
+
+  //   .chatbox-item-content {
+  //     .chatbox-item-header {
+  //     }
+
+  //     .chatbox-item-text {
+  //     }
+  //   }
+
+  .text-limit {
+    width: 200px; /* Set the width to your desired value */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+  }
+
+  .message-status-content {
+    text-align: end;
+    .chatbox-item-time {
+      color: $bg-300;
+    }
+  }
+}
+
+.chatbox-item-selecting {
+  background-color: $bg-200;
+}
+.chatbox-item:hover {
+  background-color: $bg-200;
+  cursor: pointer;
+}
+
+.chatbox-item:active {
+  background-color: $bg-300;
+}
+
+.chatbox-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  width: 98%;
+  border-bottom: 1px solid $bg-300;
+}

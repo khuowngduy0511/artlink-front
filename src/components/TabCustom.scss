@@ -1,0 +1,11 @@
+@import "/src/const/variables.scss";
+
+.inactive-tab {
+    color: $strong-200;
+}
+.active-tab {
+    background-color: $primary-300;
+    color: $bg-100;
+    border-radius: 50px;
+    border: 0;
+}

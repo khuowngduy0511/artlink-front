@@ -1,0 +1,83 @@
+.payment-result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+
+  .payment-result-card {
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+
+    &.success {
+      border-top: 4px solid #22c55e;
+    }
+
+    &.cancel {
+      border-top: 4px solid #ef4444;
+    }
+
+    .success-icon {
+      font-size: 5rem;
+      color: #22c55e;
+    }
+
+    .cancel-icon {
+      font-size: 5rem;
+      color: #ef4444;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .p-button {
+        min-width: 150px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-result-container {
+    padding: 1rem;
+
+    .payment-result-card {
+      .success-icon,
+      .cancel-icon {
+        font-size: 3.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .message {
+        font-size: 1rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+
+        .p-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

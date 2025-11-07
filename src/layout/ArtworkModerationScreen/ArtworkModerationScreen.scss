@@ -1,0 +1,34 @@
+.artwork-moderation-screen {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f5f5f5;
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .moderation-table {
+    .p-datatable-header {
+      background: transparent;
+      border: none;
+    }
+  }
+}

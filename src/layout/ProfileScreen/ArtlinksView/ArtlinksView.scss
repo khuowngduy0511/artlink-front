@@ -1,0 +1,30 @@
+@import "/src/const/variables.scss";
+
+.artwork-gallery {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start !important;
+    flex-wrap: wrap !important;
+    padding: 0 !important;
+    .add-artwork-card {
+        width: 298px;
+        height: 450px;
+        border: 1px dashed $primary-300;
+        border-radius: $borderRadius-100;
+        .p-card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                font-size: 50px;
+                color: $text-100;
+            }
+        }
+    }
+    .gallery__item {
+        width: 314px;
+        height: fit-content;
+    }
+}

@@ -1,0 +1,230 @@
+.admin-withdrawal-dashboard {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h1 {
+      margin: 0;
+      color: #2c3e50;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Statistics Grid
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .stat-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .stat-content {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .stat-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          color: white;
+        }
+
+        .stat-details {
+          flex: 1;
+
+          .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 4px;
+          }
+
+          .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+          }
+
+          .stat-amount {
+            font-size: 0.85rem;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 4px;
+          }
+        }
+      }
+
+      &.stat-total {
+        .stat-icon {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .stat-value {
+          color: #667eea;
+        }
+      }
+
+      &.stat-pending {
+        .stat-icon {
+          background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+        .stat-value {
+          color: #f39c12;
+        }
+      }
+
+      &.stat-approved {
+        .stat-icon {
+          background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        .stat-value {
+          color: #3498db;
+        }
+      }
+
+      &.stat-completed {
+        .stat-icon {
+          background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        }
+        .stat-value {
+          color: #27ae60;
+        }
+      }
+
+      &.stat-rejected {
+        .stat-icon {
+          background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+        .stat-value {
+          color: #e74c3c;
+        }
+      }
+    }
+  }
+
+  // Filter Section
+  .filter-section {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+  }
+
+  // Data Table
+  .withdrawal-table {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  // Action Dialog
+  .action-dialog-content {
+    .request-summary {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+
+      p {
+        margin: 8px 0;
+        display: flex;
+        justify-content: space-between;
+
+        strong {
+          color: #2c3e50;
+        }
+      }
+    }
+
+    .action-warning {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      color: #856404;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+
+      &.warning-critical {
+        background: #f8d7da;
+        border-color: #e74c3c;
+        color: #721c24;
+        font-weight: 600;
+      }
+    }
+
+    .admin-note-section {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #2c3e50;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 20px;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .admin-withdrawal-dashboard {
+    padding: 16px;
+
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

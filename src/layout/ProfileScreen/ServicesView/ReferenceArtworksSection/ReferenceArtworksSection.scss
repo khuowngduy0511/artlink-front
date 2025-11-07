@@ -1,0 +1,47 @@
+@import "/src/const/variables.scss";
+
+.reference-artworks-section {
+  .header {
+    width: 100%;
+    height: fit-content;
+    padding: 50px 50px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      width: 70%;
+      height: fit-content;
+      h4 {
+        text-overflow: ellipsis;
+      }
+    }
+    .action {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+  .artwork-scroll-panel {
+    .artwork-list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .artwork-item {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        .checkbox {
+          position: absolute;
+          top: 20px;
+          right: 40px;
+          margin: 8px;
+        }
+      }
+    }
+  }
+}

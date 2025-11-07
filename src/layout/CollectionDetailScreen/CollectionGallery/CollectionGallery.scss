@@ -1,0 +1,29 @@
+@import "/src/const/variables.scss";
+
+.collection-gallery {
+  width: 100%;
+  padding: 0 4.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    font-size: $h1-bold;
+    font-weight: bold;
+  }
+  .gallery {
+    width: inherit;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.confirm-dialog-header {
+  border: 0;
+}
+.p-dialog-footer {
+  border: 0;
+}

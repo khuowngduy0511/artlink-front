@@ -1,0 +1,27 @@
+@import "/src/const/variables.scss";
+
+.tag-carousel {
+  position: relative;
+
+  .style-section-left {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 100%;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    background-image: linear-gradient(to right, #ffffff00, $bg-100);
+  }
+
+  .style-section-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 100%;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    background-image: linear-gradient(to left, #ffffff00, $bg-100);
+  }
+}
