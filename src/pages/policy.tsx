@@ -1,4 +1,4 @@
-import { Button } from "primereact/button";
+﻿import { Button } from "primereact/button";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ export default function PolicyPage() {
               <span className="text-blue-500 font-bold text-3xl">Chi tiết</span>
               <h1 className="text-900 font-bold text-5xl mb-2">Chính sách nền tảng</h1>
               <p className="text-800 text-base">
-                Chào mừng bạn đến với Artworkia! Vui lòng đọc kỹ và hiểu rõ các điều khoản và điều
+                Chào mừng bạn đến với Artlink! Vui lòng đọc kỹ và hiểu rõ các điều khoản và điều
                 kiện sau khi sử dụng dịch vụ của chúng tôi. Bằng cách truy cập hoặc sử dụng dịch vụ
                 của chúng tôi, bạn đồng ý tuân theo các điều khoản và điều kiện sau đây:
               </p>
@@ -43,7 +43,7 @@ export default function PolicyPage() {
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">1. Tài Khoản và Đăng Ký</h4>
                 <p className="text-800 text-base">
-                  1.1 Đăng ký: Để sử dụng một số tính năng nhất định của Artworkia, bạn cần tạo tài
+                  1.1 Đăng ký: Để sử dụng một số tính năng nhất định của ArtLink, bạn cần tạo tài
                   khoản. Khi tạo tài khoản, bạn phải cung cấp thông tin chính xác và đầy đủ. Bạn
                   chịu trách nhiệm cho tất cả các hoạt động xảy ra trên tài khoản của mình.
                 </p>
@@ -53,22 +53,22 @@ export default function PolicyPage() {
                   của mình.
                 </p>
                 <p className="text-800 text-base">
-                  1.3 Hủy tài khoản: Bạn có thể hủy tài khoản của mình bất cứ lúc nào. Artworkia có
+                  1.3 Hủy tài khoản: Bạn có thể hủy tài khoản của mình bất cứ lúc nào. Artlink có
                   thể hủy tài khoản của bạn nếu bạn vi phạm các điều khoản và điều kiện này.
                 </p>
                 {/* ------- */}
                 <h4 className="text-900 font-bold text-xl mb-2">2: Quyền sở hữu trí tuệ</h4>
                 <p className="text-800 text-base">
                   2.1 Nội dung của bạn: Bạn sở hữu tất cả quyền đối với nội dung mà bạn đăng tải lên
-                  Artworkia. Tuy nhiên, bạn cấp cho Artworkia một giấy phép phi độc quyền, toàn cầu,
+                  Artlink. Tuy nhiên, bạn cấp cho Artlink một giấy phép phi độc quyền, toàn cầu,
                   miễn phí sử dụng, tái tạo, sửa đổi, phân phối và hiển thị nội dung của bạn trên
-                  Artworkia và các dịch vụ khác của Artworkia.
+                  Artlink và các dịch vụ khác của Artlink.
                 </p>
                 <p className="text-800 text-base">
-                  2.2 Nội dung của Artworkia: Artworkia sở hữu tất cả quyền đối với nội dung của
-                  Artworkia, bao gồm logo, hình ảnh, văn bản và thiết kế. Bạn không được phép sử
-                  dụng nội dung của Artworkia mà không có sự đồng ý bằng văn bản trước của
-                  Artworkia.
+                  2.2 Nội dung của Artlink: Artlink sở hữu tất cả quyền đối với nội dung của
+                  Artlink, bao gồm logo, hình ảnh, văn bản và thiết kế. Bạn không được phép sử
+                  dụng nội dung của Artlink mà không có sự đồng ý bằng văn bản trước của
+                  Artlink.
                 </p>
                 <p className="text-800 text-base">
                   2.3. Artwork có đính kèm assets trả phí phải được duyệt bởi moderator trước khi
@@ -83,11 +83,11 @@ export default function PolicyPage() {
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">3. Giao Dịch và Ví Người Dùng</h4>
                 <p className="text-800 text-base">
-                  3.1. Giá cả: Artworkia có thể tính phí cho một số dịch vụ nhất định. Giá cả cho
-                  các dịch vụ này được hiển thị trên Artworkia.
+                  3.1. Giá cả: Artlink có thể tính phí cho một số dịch vụ nhất định. Giá cả cho
+                  các dịch vụ này được hiển thị trên Artlink.
                 </p>
                 <p className="text-800 text-base">
-                  3.2. Thanh toán: Bạn có thể thanh toán cho các dịch vụ của Artworkia bằng thẻ tín
+                  3.2. Thanh toán: Bạn có thể thanh toán cho các dịch vụ của Artlink bằng thẻ tín
                   dụng, thẻ ghi nợ hoặc ZaloPay.
                 </p>
                 <p className="text-800 text-base">
@@ -148,7 +148,7 @@ export default function PolicyPage() {
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">4. Xu và giao dịch liên quan</h4>
                 <p className="text-800 text-base">
-                  4.1. Hệ thống Artworkia sử dụng in-app currency là "Coins" với tỉ lệ quy đổi là 1
+                  4.1. Hệ thống Artlink sử dụng in-app currency là "Coins" với tỉ lệ quy đổi là 1
                   - 1.
                 </p>
                 <p className="text-800 text-base">
@@ -161,7 +161,7 @@ export default function PolicyPage() {
                   4.4. Mệnh giá rút, nạp tiền tối đa là 10.000.000 VND.
                 </p>
                 <p className="text-800 text-base">
-                  4.5. Nền tảng Artworkia thu phí 5% trên mỗi giao dịch xu trong hệ thống.
+                  4.5. Nền tảng Artlink thu phí 5% trên mỗi giao dịch xu trong hệ thống.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">
                   5. Quản Lý Bình Luận và Collection
@@ -181,10 +181,10 @@ export default function PolicyPage() {
                 <h4 className="text-900 font-bold text-xl mb-2">6. Quy tắc ứng xử</h4>
                 <p className="text-800 text-base">
                   6.1 Hành vi hợp pháp: Bạn phải tuân theo tất cả các luật pháp và quy định hiện
-                  hành khi sử dụng Artworkia.
+                  hành khi sử dụng Artlink.
                 </p>
                 <p className="text-800 text-base">
-                  6.2 Tôn trọng: Bạn phải tôn trọng tất cả người dùng khác của Artworkia. Bạn không
+                  6.2 Tôn trọng: Bạn phải tôn trọng tất cả người dùng khác của Artlink. Bạn không
                   được đăng tải hoặc chia sẻ nội dung có tính chất xúc phạm, đe dọa, lăng mạ hoặc
                   quấy rối.
                 </p>
@@ -194,33 +194,33 @@ export default function PolicyPage() {
                 </p>
                 <p className="text-800 text-base">
                   6.4 Spam: Bạn không được gửi spam hoặc tin nhắn rác cho người dùng khác của
-                  Artworkia.
+                  Artlink.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">7. Quyền riêng tư</h4>
                 <p className="text-800 text-base">
-                  7.1 Thu thập thông tin: Artworkia thu thập thông tin từ bạn khi bạn đăng ký tài
-                  khoản, sử dụng dịch vụ của Artworkia hoặc liên hệ với Artworkia.
+                  7.1 Thu thập thông tin: Artlink thu thập thông tin từ bạn khi bạn đăng ký tài
+                  khoản, sử dụng dịch vụ của Artlink hoặc liên hệ với Artlink.
                 </p>
                 <p className="text-800 text-base">
-                  7.2 Sử dụng thông tin: Artworkia sử dụng thông tin của bạn để cung cấp dịch vụ cho
-                  bạn, cải thiện Artworkia và liên hệ với bạn về các dịch vụ và sản phẩm khác của
-                  Artworkia.
+                  7.2 Sử dụng thông tin: Artlink sử dụng thông tin của bạn để cung cấp dịch vụ cho
+                  bạn, cải thiện Artlink và liên hệ với bạn về các dịch vụ và sản phẩm khác của
+                  Artlink.
                 </p>
                 <p className="text-800 text-base">
-                  7.3 Chia sẻ thông tin: Artworkia có thể chia sẻ thông tin của bạn với các bên thứ
-                  ba cung cấp dịch vụ cho Artworkia. Artworkia cũng có thể chia sẻ thông tin của bạn
+                  7.3 Chia sẻ thông tin: Artlink có thể chia sẻ thông tin của bạn với các bên thứ
+                  ba cung cấp dịch vụ cho Artlink. Artlink cũng có thể chia sẻ thông tin của bạn
                   nếu được yêu cầu bởi pháp luật.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">8. Thay đổi</h4>
                 <p className="text-800 text-base">
-                  Artworkia có thể thay đổi các điều khoản và điều kiện này bất cứ lúc nào.
-                  Artworkia sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng tải các điều
-                  khoản và điều kiện sửa đổi trên Artworkia.
+                  Artlink có thể thay đổi các điều khoản và điều kiện này bất cứ lúc nào.
+                  Artlink sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng tải các điều
+                  khoản và điều kiện sửa đổi trên Artlink.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">9. Toàn bộ thỏa thuận</h4>
                 <p className="text-800 text-base">
-                  Các điều khoản và điều kiện này cấu thành toàn bộ thỏa thuận giữa bạn và Artworkia
-                  về việc sử dụng Artworkia.
+                  Các điều khoản và điều kiện này cấu thành toàn bộ thỏa thuận giữa bạn và Artlink
+                  về việc sử dụng Artlink.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">10. Luật pháp chi phối</h4>
                 <p className="text-800 text-base">
@@ -230,7 +230,7 @@ export default function PolicyPage() {
                 <h4 className="text-900 font-bold text-xl mb-2">11. Giải quyết tranh chấp</h4>
                 <p className="text-800 text-base">
                   Đối ới bất kỳ tranh chấp nào phát sinh từ hoặc liên quan đến các điều khoản và
-                  điều kiện này, quyết định cuối cùng thuộc về Artworkia trọng tài theo luật pháp
+                  điều kiện này, quyết định cuối cùng thuộc về Artlink trọng tài theo luật pháp
                   Việt Nam.
                 </p>
               </div>
@@ -265,7 +265,7 @@ export default function PolicyPage() {
                 <span className="ml-4 flex flex-column">
                   <span className="text-900 lg:text-xl font-medium mb-1">Liên hệ trợ giúp</span>
                   <span className="text-600 lg:text-lg">
-                    Artworkia luôn có bộ phận trợ giúp sẵn sàng hỗ trợ bạn.
+                    Artlink luôn có bộ phận trợ giúp sẵn sàng hỗ trợ bạn.
                   </span>
                 </span>
               </Link>
