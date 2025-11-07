@@ -7,10 +7,10 @@ export default function PolicyPage() {
   return (
     <>
       <Helmet>
-        <title>ChÃ­nh sÃ¡ch ná»n táº£ng</title>
+        <title>Chính sách nền tảng</title>
         <meta
           name="description"
-          content="ChÃ­nh sÃ¡ch ná»n táº£ng cá»§a chÃºng tÃ´i giÃºp báº¡n hiá»ƒu rÃµ hÆ¡n vá» cÃ¡ch chÃºng tÃ´i thu tháº­p, sá»­ dá»¥ng dá»¯ liá»‡u vÃ  cÃ¡c cam káº¿t mÃ  báº¡n pháº£i cháº¥p nháº­n khi sá»­ dá»¥ng há»‡ thá»‘ng cá»§a chÃºng tÃ´i."
+          content="Chính sách nền tảng của chúng tôi giúp bạn hiểu rõ hơn về cách chúng tôi thu thập, sử dụng dữ liệu và các cam kết mà bạn phải chấp nhận khi sử dụng hệ thống của chúng tôi."
         />
       </Helmet>
       <div className="err-page-container flex align-items-center justify-content-center min-h-screen overflow-hidden">
@@ -28,210 +28,210 @@ export default function PolicyPage() {
               className="w-full surface-card py-8 px-5 sm:px-8 flex flex-column align-items-center"
               style={{ borderRadius: "53px" }}
             >
-              <span className="text-blue-500 font-bold text-3xl">Chi tiáº¿t</span>
-              <h1 className="text-900 font-bold text-5xl mb-2">ChÃ­nh sÃ¡ch ná»n táº£ng</h1>
+              <span className="text-blue-500 font-bold text-3xl">Chi tiết</span>
+              <h1 className="text-900 font-bold text-5xl mb-2">Chính sách nền tảng</h1>
               <p className="text-800 text-base">
-                ChÃ o má»«ng báº¡n Ä‘áº¿n vá»›i Artlink! Vui lÃ²ng Ä‘á»c ká»¹ vÃ  hiá»ƒu rÃµ cÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u
-                kiá»‡n sau khi sá»­ dá»¥ng dá»‹ch vá»¥ cá»§a chÃºng tÃ´i. Báº±ng cÃ¡ch truy cáº­p hoáº·c sá»­ dá»¥ng dá»‹ch vá»¥
-                cá»§a chÃºng tÃ´i, báº¡n Ä‘á»“ng Ã½ tuÃ¢n theo cÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u kiá»‡n sau Ä‘Ã¢y:
+                Chào mừng bạn đến với Artworkia! Vui lòng đọc kỹ và hiểu rõ các điều khoản và điều
+                kiện sau khi sử dụng dịch vụ của chúng tôi. Bằng cách truy cập hoặc sử dụng dịch vụ
+                của chúng tôi, bạn đồng ý tuân theo các điều khoản và điều kiện sau đây:
               </p>
               <div className="detail-policy-container">
-                <h4 className="text-900 font-bold text-xl mb-2">1. ChÃ­nh sÃ¡ch báº£o máº­t</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">1. Chính sách bảo mật</h4>
                 <p className="text-800 text-base">
-                  ChÃ­nh sÃ¡ch báº£o máº­t cá»§a chÃºng tÃ´i giÃºp báº¡n hiá»ƒu rÃµ cÃ¡ch chÃºng tÃ´i thu tháº­p, sá»­ dá»¥ng
-                  vÃ  báº£o vá»‡ thÃ´ng tin cÃ¡ nhÃ¢n cá»§a báº¡n khi báº¡n sá»­ dá»¥ng dá»‹ch vá»¥ cá»§a chÃºng tÃ´i.
+                  Chính sách bảo mật của chúng tôi giúp bạn hiểu rõ cách chúng tôi thu thập, sử dụng
+                  và bảo vệ thông tin cá nhân của bạn khi bạn sử dụng dịch vụ của chúng tôi.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">1. TÃ i Khoáº£n vÃ  ÄÄƒng KÃ½</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">1. Tài Khoản và Đăng Ký</h4>
                 <p className="text-800 text-base">
-                  1.1 ÄÄƒng kÃ½: Äá»ƒ sá»­ dá»¥ng má»™t sá»‘ tÃ­nh nÄƒng nháº¥t Ä‘á»‹nh cá»§a Artlink, báº¡n cáº§n táº¡o tÃ i
-                  khoáº£n. Khi táº¡o tÃ i khoáº£n, báº¡n pháº£i cung cáº¥p thÃ´ng tin chÃ­nh xÃ¡c vÃ  Ä‘áº§y Ä‘á»§. Báº¡n
-                  chá»‹u trÃ¡ch nhiá»‡m cho táº¥t cáº£ cÃ¡c hoáº¡t Ä‘á»™ng xáº£y ra trÃªn tÃ i khoáº£n cá»§a mÃ¬nh.
-                </p>
-                <p className="text-800 text-base">
-                  1.2 Báº£o máº­t: Báº¡n pháº£i giá»¯ bÃ­ máº­t máº­t kháº©u cá»§a mÃ¬nh vÃ  khÃ´ng Ä‘Æ°á»£c tiáº¿t lá»™ cho báº¥t
-                  ká»³ ai khÃ¡c. Báº¡n chá»‹u trÃ¡ch nhiá»‡m cho táº¥t cáº£ cÃ¡c hoáº¡t Ä‘á»™ng xáº£y ra trÃªn tÃ i khoáº£n
-                  cá»§a mÃ¬nh.
+                  1.1 Đăng ký: Để sử dụng một số tính năng nhất định của Artworkia, bạn cần tạo tài
+                  khoản. Khi tạo tài khoản, bạn phải cung cấp thông tin chính xác và đầy đủ. Bạn
+                  chịu trách nhiệm cho tất cả các hoạt động xảy ra trên tài khoản của mình.
                 </p>
                 <p className="text-800 text-base">
-                  1.3 Há»§y tÃ i khoáº£n: Báº¡n cÃ³ thá»ƒ há»§y tÃ i khoáº£n cá»§a mÃ¬nh báº¥t cá»© lÃºc nÃ o. Artlink cÃ³
-                  thá»ƒ há»§y tÃ i khoáº£n cá»§a báº¡n náº¿u báº¡n vi pháº¡m cÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u kiá»‡n nÃ y.
+                  1.2 Bảo mật: Bạn phải giữ bí mật mật khẩu của mình và không được tiết lộ cho bất
+                  kỳ ai khác. Bạn chịu trách nhiệm cho tất cả các hoạt động xảy ra trên tài khoản
+                  của mình.
+                </p>
+                <p className="text-800 text-base">
+                  1.3 Hủy tài khoản: Bạn có thể hủy tài khoản của mình bất cứ lúc nào. Artworkia có
+                  thể hủy tài khoản của bạn nếu bạn vi phạm các điều khoản và điều kiện này.
                 </p>
                 {/* ------- */}
-                <h4 className="text-900 font-bold text-xl mb-2">2: Quyá»n sá»Ÿ há»¯u trÃ­ tuá»‡</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">2: Quyền sở hữu trí tuệ</h4>
                 <p className="text-800 text-base">
-                  2.1 Ná»™i dung cá»§a báº¡n: Báº¡n sá»Ÿ há»¯u táº¥t cáº£ quyá»n Ä‘á»‘i vá»›i ná»™i dung mÃ  báº¡n Ä‘Äƒng táº£i lÃªn
-                  Artlink. Tuy nhiÃªn, báº¡n cáº¥p cho Artlink má»™t giáº¥y phÃ©p phi Ä‘á»™c quyá»n, toÃ n cáº§u,
-                  miá»…n phÃ­ sá»­ dá»¥ng, tÃ¡i táº¡o, sá»­a Ä‘á»•i, phÃ¢n phá»‘i vÃ  hiá»ƒn thá»‹ ná»™i dung cá»§a báº¡n trÃªn
-                  Artlink vÃ  cÃ¡c dá»‹ch vá»¥ khÃ¡c cá»§a Artlink.
+                  2.1 Nội dung của bạn: Bạn sở hữu tất cả quyền đối với nội dung mà bạn đăng tải lên
+                  Artworkia. Tuy nhiên, bạn cấp cho Artworkia một giấy phép phi độc quyền, toàn cầu,
+                  miễn phí sử dụng, tái tạo, sửa đổi, phân phối và hiển thị nội dung của bạn trên
+                  Artworkia và các dịch vụ khác của Artworkia.
                 </p>
                 <p className="text-800 text-base">
-                  2.2 Ná»™i dung cá»§a Artlink: Artlink sá»Ÿ há»¯u táº¥t cáº£ quyá»n Ä‘á»‘i vá»›i ná»™i dung cá»§a
-                  Artlink, bao gá»“m logo, hÃ¬nh áº£nh, vÄƒn báº£n vÃ  thiáº¿t káº¿. Báº¡n khÃ´ng Ä‘Æ°á»£c phÃ©p sá»­
-                  dá»¥ng ná»™i dung cá»§a Artlink mÃ  khÃ´ng cÃ³ sá»± Ä‘á»“ng Ã½ báº±ng vÄƒn báº£n trÆ°á»›c cá»§a
-                  Artlink.
+                  2.2 Nội dung của Artworkia: Artworkia sở hữu tất cả quyền đối với nội dung của
+                  Artworkia, bao gồm logo, hình ảnh, văn bản và thiết kế. Bạn không được phép sử
+                  dụng nội dung của Artworkia mà không có sự đồng ý bằng văn bản trước của
+                  Artworkia.
                 </p>
                 <p className="text-800 text-base">
-                  2.3. Artwork cÃ³ Ä‘Ã­nh kÃ¨m assets tráº£ phÃ­ pháº£i Ä‘Æ°á»£c duyá»‡t bá»Ÿi moderator trÆ°á»›c khi
-                  hiá»ƒn thá»‹ cÃ´ng khai trÃªn trang chá»§.
+                  2.3. Artwork có đính kèm assets trả phí phải được duyệt bởi moderator trước khi
+                  hiển thị công khai trên trang chủ.
                 </p>
                 <p className="text-800 text-base">
-                  2.4. Artwork cÃ³ privacy lÃ  private chá»‰ hiá»ƒn thá»‹ vá»›i creator Ä‘Ã£ Ä‘Äƒng nÃ³.
+                  2.4. Artwork có privacy là private chỉ hiển thị với creator đã đăng nó.
                 </p>
                 <p className="text-800 text-base">
-                  2.5. Khi artwork bá»‹ xÃ³a, cÃ¡c assets tráº£ phÃ­ Ä‘Ã­nh kÃ¨m sáº½ khÃ´ng hiá»ƒn thá»‹ cÃ´ng khai
-                  ná»¯a.
+                  2.5. Khi artwork bị xóa, các assets trả phí đính kèm sẽ không hiển thị công khai
+                  nữa.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">3. Giao Dá»‹ch vÃ  VÃ­ NgÆ°á»i DÃ¹ng</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">3. Giao Dịch và Ví Người Dùng</h4>
                 <p className="text-800 text-base">
-                  3.1. GiÃ¡ cáº£: Artlink cÃ³ thá»ƒ tÃ­nh phÃ­ cho má»™t sá»‘ dá»‹ch vá»¥ nháº¥t Ä‘á»‹nh. GiÃ¡ cáº£ cho
-                  cÃ¡c dá»‹ch vá»¥ nÃ y Ä‘Æ°á»£c hiá»ƒn thá»‹ trÃªn Artlink.
-                </p>
-                <p className="text-800 text-base">
-                  3.2. Thanh toÃ¡n: Báº¡n cÃ³ thá»ƒ thanh toÃ¡n cho cÃ¡c dá»‹ch vá»¥ cá»§a Artlink báº±ng tháº» tÃ­n
-                  dá»¥ng, tháº» ghi ná»£ hoáº·c ZaloPay.
+                  3.1. Giá cả: Artworkia có thể tính phí cho một số dịch vụ nhất định. Giá cả cho
+                  các dịch vụ này được hiển thị trên Artworkia.
                 </p>
                 <p className="text-800 text-base">
-                  3.3. Äá»ƒ má»Ÿ khÃ³a 1 asset, ngÆ°á»i dÃ¹ng pháº£i chÆ°a tá»«ng má»Ÿ khÃ³a asset nÃ y trÆ°á»›c Ä‘Ã³.
+                  3.2. Thanh toán: Bạn có thể thanh toán cho các dịch vụ của Artworkia bằng thẻ tín
+                  dụng, thẻ ghi nợ hoặc ZaloPay.
                 </p>
                 <p className="text-800 text-base">
-                  3.4. NgÆ°á»i dÃ¹ng pháº£i cÃ³ Ã­t nháº¥t 1 public artwork Ä‘Ã£ Ä‘Æ°á»£c duyá»‡t Ä‘á»ƒ táº¡o service.
+                  3.3. Để mở khóa 1 asset, người dùng phải chưa từng mở khóa asset này trước đó.
                 </p>
                 <p className="text-800 text-base">
-                  3.5. NgÆ°á»i dÃ¹ng chá»‰ Ä‘Æ°á»£c update vÃ  delete service cá»§a chÃ­nh mÃ¬nh.
+                  3.4. Người dùng phải có ít nhất 1 public artwork đã được duyệt để tạo service.
                 </p>
                 <p className="text-800 text-base">
-                  3.6. Khi delete service, cÃ¡c requests vÃ  proposals liÃªn quan sáº½ khÃ´ng bá»‹ máº¥t Ä‘i.
+                  3.5. Người dùng chỉ được update và delete service của chính mình.
                 </p>
                 <p className="text-800 text-base">
-                  3.7. Request pháº£i Ä‘Æ°á»£c táº¡o dá»±a trÃªn 1 service Ä‘Ã£ cÃ³ cá»§a creator khÃ¡c.
+                  3.6. Khi delete service, các requests và proposals liên quan sẽ không bị mất đi.
                 </p>
                 <p className="text-800 text-base">
-                  3.8. Chá»‰ cÃ³ creator Ä‘Ã£ táº¡o service má»›i Ä‘Æ°á»£c quyá»n update status cá»§a request liÃªn
-                  quan Ä‘áº¿n service Ä‘Ã³.
+                  3.7. Request phải được tạo dựa trên 1 service đã có của creator khác.
                 </p>
                 <p className="text-800 text-base">
-                  3.9. Chá»‰ cÃ³ creator Ä‘Ã£ táº¡o service má»›i Ä‘Æ°á»£c quyá»n táº¡o proposal cho service Ä‘Ã³.
+                  3.8. Chỉ có creator đã tạo service mới được quyền update status của request liên
+                  quan đến service đó.
                 </p>
                 <p className="text-800 text-base">
-                  3.10. Trong thá»a thuáº­n pháº£i quy Ä‘á»‹nh rÃµ thá»i háº¡n giao ná»™p sáº£n pháº©m cuá»‘i cÃ¹ng vÃ 
-                  cÃ¡c rÃ ng buá»™c vá» thanh toÃ¡n.
+                  3.9. Chỉ có creator đã tạo service mới được quyền tạo proposal cho service đó.
                 </p>
                 <p className="text-800 text-base">
-                  3.11. NgÆ°á»i dÃ¹ng chá»‰ Ä‘Æ°á»£c update vÃ  delete proposal cá»§a chÃ­nh mÃ¬nh.
+                  3.10. Trong thỏa thuận phải quy định rõ thời hạn giao nộp sản phẩm cuối cùng và
+                  các ràng buộc về thanh toán.
                 </p>
                 <p className="text-800 text-base">
-                  3.12. Creator chá»‰ Ä‘Æ°á»£c update hoáº·c delete proposal khi proposal Ä‘Ã³ chÆ°a Ä‘Æ°á»£c cháº¥p
-                  nháº­n bá»Ÿi audience.
+                  3.11. Người dùng chỉ được update và delete proposal của chính mình.
                 </p>
                 <p className="text-800 text-base">
-                  3.13. Chá»‰ ngÆ°á»i Ä‘Ã£ Ä‘áº·t yÃªu cáº§u vá» proposal má»›i Ä‘Æ°á»£c cháº¥p nháº­n hoáº·c tá»« chá»‘i
-                  proposal Ä‘Ã³.
+                  3.12. Creator chỉ được update hoặc delete proposal khi proposal đó chưa được chấp
+                  nhận bởi audience.
                 </p>
                 <p className="text-800 text-base">
-                  3.14. NgÆ°á»i dÃ¹ng thá»±c hiá»‡n Ä‘áº·t cá»c cho proposal chá»‰ khi há» Ä‘Ã£ accept proposal Ä‘Ã³.
+                  3.13. Chỉ người đã đặt yêu cầu về proposal mới được chấp nhận hoặc từ chối
+                  proposal đó.
                 </p>
                 <p className="text-800 text-base">
-                  3.15. NgÆ°á»i dÃ¹ng chá»‰ cÃ³ thá»ƒ hoÃ n táº¥t thanh toÃ¡n cho 1 proposal khi nÃ³ Ä‘Ã£ Ä‘Æ°á»£c cáº­p
-                  nháº­t final assets vÃ  cÃ³ tráº¡ng thÃ¡i lÃ  "Completed".
+                  3.14. Người dùng thực hiện đặt cọc cho proposal chỉ khi họ đã accept proposal đó.
                 </p>
                 <p className="text-800 text-base">
-                  3.16. Sá»‘ xu Ä‘Ã£ thanh toÃ¡n cho assets hoáº·c proposal sáº½ khÃ´ng Ä‘Æ°á»£c hoÃ n láº¡i trá»« khi
-                  cÃ³ váº¥n Ä‘á» xáº£y ra vÃ  ngÆ°á»i dÃ¹ng gá»­i khiáº¿u náº¡i lÃªn há»‡ thá»‘ng.
+                  3.15. Người dùng chỉ có thể hoàn tất thanh toán cho 1 proposal khi nó đã được cập
+                  nhật final assets và có trạng thái là "Completed".
                 </p>
                 <p className="text-800 text-base">
-                  3.17. NgÆ°á»i dÃ¹ng pháº£i nháº­p sá»‘ Ä‘iá»‡n thoáº¡i há»£p lá»‡ Ä‘Ã£ liÃªn káº¿t vá»›i Zalopay Ä‘á»ƒ
+                  3.16. Số xu đã thanh toán cho assets hoặc proposal sẽ không được hoàn lại trừ khi
+                  có vấn đề xảy ra và người dùng gửi khiếu nại lên hệ thống.
+                </p>
+                <p className="text-800 text-base">
+                  3.17. Người dùng phải nhập số điện thoại hợp lệ đã liên kết với Zalopay để
                   activate wallet.
                 </p>
                 <p className="text-800 text-base">
-                  3.18. NgÆ°á»i dÃ¹ng pháº£i liÃªn káº¿t tÃ i khoáº£n vá»›i vÃ­ Ä‘iá»‡n tá»­ há»£p lá»‡ Ä‘á»ƒ thá»±c hiá»‡n cÃ¡c
-                  thao tÃ¡c rÃºt náº¡p tiá»n trÃªn há»‡ thá»‘ng.
+                  3.18. Người dùng phải liên kết tài khoản với ví điện tử hợp lệ để thực hiện các
+                  thao tác rút nạp tiền trên hệ thống.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">4. Xu vÃ  giao dá»‹ch liÃªn quan</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">4. Xu và giao dịch liên quan</h4>
                 <p className="text-800 text-base">
-                  4.1. Há»‡ thá»‘ng Artlink sá»­ dá»¥ng in-app currency lÃ  "Coins" vá»›i tá»‰ lá»‡ quy Ä‘á»•i lÃ  1
+                  4.1. Hệ thống Artworkia sử dụng in-app currency là "Coins" với tỉ lệ quy đổi là 1
                   - 1.
                 </p>
                 <p className="text-800 text-base">
-                  4.2. Má»‡nh giÃ¡ náº¡p tiá»n tá»‘i thiá»ƒu cho 1 láº§n náº¡p lÃ  40.000 VND.
+                  4.2. Mệnh giá nạp tiền tối thiểu cho 1 lần nạp là 40.000 VND.
                 </p>
                 <p className="text-800 text-base">
-                  4.3. Má»‡nh giÃ¡ rÃºt tiá»n tá»‘i thiá»ƒu cho 1 láº§n rÃºt lÃ  50.000 VND.
+                  4.3. Mệnh giá rút tiền tối thiểu cho 1 lần rút là 50.000 VND.
                 </p>
                 <p className="text-800 text-base">
-                  4.4. Má»‡nh giÃ¡ rÃºt, náº¡p tiá»n tá»‘i Ä‘a lÃ  10.000.000 VND.
+                  4.4. Mệnh giá rút, nạp tiền tối đa là 10.000.000 VND.
                 </p>
                 <p className="text-800 text-base">
-                  4.5. Ná»n táº£ng Artlink thu phÃ­ 5% trÃªn má»—i giao dá»‹ch xu trong há»‡ thá»‘ng.
+                  4.5. Nền tảng Artworkia thu phí 5% trên mỗi giao dịch xu trong hệ thống.
                 </p>
                 <h4 className="text-900 font-bold text-xl mb-2">
-                  5. Quáº£n LÃ½ BÃ¬nh Luáº­n vÃ  Collection
+                  5. Quản Lý Bình Luận và Collection
                 </h4>
                 <p className="text-800 text-base">
-                  5.1. NgÆ°á»i dÃ¹ng chá»‰ Ä‘Æ°á»£c xÃ³a comment cá»§a chÃ­nh mÃ¬nh.
+                  5.1. Người dùng chỉ được xóa comment của chính mình.
                 </p>
                 <p className="text-800 text-base">
-                  5.2. Khi comment bá»‹ xÃ³a, cÃ¡c comments pháº£n há»“i cá»§a nÃ³ sáº½ bá»‹ áº©n Ä‘i nhÆ°ng khÃ´ng bá»‹
-                  xÃ³a.
+                  5.2. Khi comment bị xóa, các comments phản hồi của nó sẽ bị ẩn đi nhưng không bị
+                  xóa.
                 </p>
                 <p className="text-800 text-base">
-                  5.3. NgÆ°á»i dÃ¹ng chá»‰ Ä‘Æ°á»£c xÃ³a collection cá»§a chÃ­nh mÃ­nh.
+                  5.3. Người dùng chỉ được xóa collection của chính mính.
                 </p>
-                <p className="text-800 text-base">5.4. NgÆ°á»i dÃ¹ng khÃ´ng thá»ƒ follow chÃ­nh mÃ¬nh.</p>
-                <p className="text-800 text-base">5.5. NgÆ°á»i dÃ¹ng khÃ´ng thá»ƒ block chÃ­nh mÃ¬nh.</p>
-                <h4 className="text-900 font-bold text-xl mb-2">6. Quy táº¯c á»©ng xá»­</h4>
+                <p className="text-800 text-base">5.4. Người dùng không thể follow chính mình.</p>
+                <p className="text-800 text-base">5.5. Người dùng không thể block chính mình.</p>
+                <h4 className="text-900 font-bold text-xl mb-2">6. Quy tắc ứng xử</h4>
                 <p className="text-800 text-base">
-                  6.1 HÃ nh vi há»£p phÃ¡p: Báº¡n pháº£i tuÃ¢n theo táº¥t cáº£ cÃ¡c luáº­t phÃ¡p vÃ  quy Ä‘á»‹nh hiá»‡n
-                  hÃ nh khi sá»­ dá»¥ng Artlink.
-                </p>
-                <p className="text-800 text-base">
-                  6.2 TÃ´n trá»ng: Báº¡n pháº£i tÃ´n trá»ng táº¥t cáº£ ngÆ°á»i dÃ¹ng khÃ¡c cá»§a Artlink. Báº¡n khÃ´ng
-                  Ä‘Æ°á»£c Ä‘Äƒng táº£i hoáº·c chia sáº» ná»™i dung cÃ³ tÃ­nh cháº¥t xÃºc pháº¡m, Ä‘e dá»a, lÄƒng máº¡ hoáº·c
-                  quáº¥y rá»‘i.
+                  6.1 Hành vi hợp pháp: Bạn phải tuân theo tất cả các luật pháp và quy định hiện
+                  hành khi sử dụng Artworkia.
                 </p>
                 <p className="text-800 text-base">
-                  6.3 Ná»™i dung khÃ´ng phÃ¹ há»£p: Báº¡n khÃ´ng Ä‘Æ°á»£c Ä‘Äƒng táº£i hoáº·c chia sáº» ná»™i dung cÃ³ tÃ­nh
-                  cháº¥t khiÃªu dÃ¢m, báº¡o lá»±c hoáº·c báº¥t há»£p phÃ¡p.
+                  6.2 Tôn trọng: Bạn phải tôn trọng tất cả người dùng khác của Artworkia. Bạn không
+                  được đăng tải hoặc chia sẻ nội dung có tính chất xúc phạm, đe dọa, lăng mạ hoặc
+                  quấy rối.
                 </p>
                 <p className="text-800 text-base">
-                  6.4 Spam: Báº¡n khÃ´ng Ä‘Æ°á»£c gá»­i spam hoáº·c tin nháº¯n rÃ¡c cho ngÆ°á»i dÃ¹ng khÃ¡c cá»§a
-                  Artlink.
-                </p>
-                <h4 className="text-900 font-bold text-xl mb-2">7. Quyá»n riÃªng tÆ°</h4>
-                <p className="text-800 text-base">
-                  7.1 Thu tháº­p thÃ´ng tin: Artlink thu tháº­p thÃ´ng tin tá»« báº¡n khi báº¡n Ä‘Äƒng kÃ½ tÃ i
-                  khoáº£n, sá»­ dá»¥ng dá»‹ch vá»¥ cá»§a Artlink hoáº·c liÃªn há»‡ vá»›i Artlink.
+                  6.3 Nội dung không phù hợp: Bạn không được đăng tải hoặc chia sẻ nội dung có tính
+                  chất khiêu dâm, bạo lực hoặc bất hợp pháp.
                 </p>
                 <p className="text-800 text-base">
-                  7.2 Sá»­ dá»¥ng thÃ´ng tin: Artlink sá»­ dá»¥ng thÃ´ng tin cá»§a báº¡n Ä‘á»ƒ cung cáº¥p dá»‹ch vá»¥ cho
-                  báº¡n, cáº£i thiá»‡n Artlink vÃ  liÃªn há»‡ vá»›i báº¡n vá» cÃ¡c dá»‹ch vá»¥ vÃ  sáº£n pháº©m khÃ¡c cá»§a
-                  Artlink.
+                  6.4 Spam: Bạn không được gửi spam hoặc tin nhắn rác cho người dùng khác của
+                  Artworkia.
+                </p>
+                <h4 className="text-900 font-bold text-xl mb-2">7. Quyền riêng tư</h4>
+                <p className="text-800 text-base">
+                  7.1 Thu thập thông tin: Artworkia thu thập thông tin từ bạn khi bạn đăng ký tài
+                  khoản, sử dụng dịch vụ của Artworkia hoặc liên hệ với Artworkia.
                 </p>
                 <p className="text-800 text-base">
-                  7.3 Chia sáº» thÃ´ng tin: Artlink cÃ³ thá»ƒ chia sáº» thÃ´ng tin cá»§a báº¡n vá»›i cÃ¡c bÃªn thá»©
-                  ba cung cáº¥p dá»‹ch vá»¥ cho Artlink. Artlink cÅ©ng cÃ³ thá»ƒ chia sáº» thÃ´ng tin cá»§a báº¡n
-                  náº¿u Ä‘Æ°á»£c yÃªu cáº§u bá»Ÿi phÃ¡p luáº­t.
+                  7.2 Sử dụng thông tin: Artworkia sử dụng thông tin của bạn để cung cấp dịch vụ cho
+                  bạn, cải thiện Artworkia và liên hệ với bạn về các dịch vụ và sản phẩm khác của
+                  Artworkia.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">8. Thay Ä‘á»•i</h4>
                 <p className="text-800 text-base">
-                  Artlink cÃ³ thá»ƒ thay Ä‘á»•i cÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u kiá»‡n nÃ y báº¥t cá»© lÃºc nÃ o.
-                  Artlink sáº½ thÃ´ng bÃ¡o cho báº¡n vá» báº¥t ká»³ thay Ä‘á»•i nÃ o báº±ng cÃ¡ch Ä‘Äƒng táº£i cÃ¡c Ä‘iá»u
-                  khoáº£n vÃ  Ä‘iá»u kiá»‡n sá»­a Ä‘á»•i trÃªn Artlink.
+                  7.3 Chia sẻ thông tin: Artworkia có thể chia sẻ thông tin của bạn với các bên thứ
+                  ba cung cấp dịch vụ cho Artworkia. Artworkia cũng có thể chia sẻ thông tin của bạn
+                  nếu được yêu cầu bởi pháp luật.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">9. ToÃ n bá»™ thá»a thuáº­n</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">8. Thay đổi</h4>
                 <p className="text-800 text-base">
-                  CÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u kiá»‡n nÃ y cáº¥u thÃ nh toÃ n bá»™ thá»a thuáº­n giá»¯a báº¡n vÃ  Artlink
-                  vá» viá»‡c sá»­ dá»¥ng Artlink.
+                  Artworkia có thể thay đổi các điều khoản và điều kiện này bất cứ lúc nào.
+                  Artworkia sẽ thông báo cho bạn về bất kỳ thay đổi nào bằng cách đăng tải các điều
+                  khoản và điều kiện sửa đổi trên Artworkia.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">10. Luáº­t phÃ¡p chi phá»‘i</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">9. Toàn bộ thỏa thuận</h4>
                 <p className="text-800 text-base">
-                  CÃ¡c Ä‘iá»u khoáº£n vÃ  Ä‘iá»u kiá»‡n nÃ y Ä‘Æ°á»£c chi phá»‘i vÃ  giáº£i thÃ­ch theo luáº­t phÃ¡p Viá»‡t
+                  Các điều khoản và điều kiện này cấu thành toàn bộ thỏa thuận giữa bạn và Artworkia
+                  về việc sử dụng Artworkia.
+                </p>
+                <h4 className="text-900 font-bold text-xl mb-2">10. Luật pháp chi phối</h4>
+                <p className="text-800 text-base">
+                  Các điều khoản và điều kiện này được chi phối và giải thích theo luật pháp Việt
                   Nam.
                 </p>
-                <h4 className="text-900 font-bold text-xl mb-2">11. Giáº£i quyáº¿t tranh cháº¥p</h4>
+                <h4 className="text-900 font-bold text-xl mb-2">11. Giải quyết tranh chấp</h4>
                 <p className="text-800 text-base">
-                  Äá»‘i á»›i báº¥t ká»³ tranh cháº¥p nÃ o phÃ¡t sinh tá»« hoáº·c liÃªn quan Ä‘áº¿n cÃ¡c Ä‘iá»u khoáº£n vÃ 
-                  Ä‘iá»u kiá»‡n nÃ y, quyáº¿t Ä‘á»‹nh cuá»‘i cÃ¹ng thuá»™c vá» Artlink trá»ng tÃ i theo luáº­t phÃ¡p
-                  Viá»‡t Nam.
+                  Đối ới bất kỳ tranh chấp nào phát sinh từ hoặc liên quan đến các điều khoản và
+                  điều kiện này, quyết định cuối cùng thuộc về Artworkia trọng tài theo luật pháp
+                  Việt Nam.
                 </p>
               </div>
 
@@ -246,9 +246,9 @@ export default function PolicyPage() {
                   <i className="text-50 pi pi-fw pi-table text-2xl"></i>
                 </span>
                 <span className="ml-4 flex flex-column">
-                  <span className="text-900 lg:text-xl font-medium mb-1">CÃ¢u há»i thÆ°á»ng gáº·p</span>
+                  <span className="text-900 lg:text-xl font-medium mb-1">Câu hỏi thường gặp</span>
                   <span className="text-600 lg:text-lg">
-                    CÃ³ láº½ báº¡n sáº½ cáº§n biáº¿t nhá»¯ng Ä‘iá»u quen thuá»™c.
+                    Có lẽ bạn sẽ cần biết những điều quen thuộc.
                   </span>
                 </span>
               </Link>
@@ -263,9 +263,9 @@ export default function PolicyPage() {
                   <i className="pi pi-fw pi-question-circle text-50 text-2xl"></i>
                 </span>
                 <span className="ml-4 flex flex-column">
-                  <span className="text-900 lg:text-xl font-medium mb-1">LiÃªn há»‡ trá»£ giÃºp</span>
+                  <span className="text-900 lg:text-xl font-medium mb-1">Liên hệ trợ giúp</span>
                   <span className="text-600 lg:text-lg">
-                    Artlink luÃ´n cÃ³ bá»™ pháº­n trá»£ giÃºp sáºµn sÃ ng há»— trá»£ báº¡n.
+                    Artworkia luôn có bộ phận trợ giúp sẵn sàng hỗ trợ bạn.
                   </span>
                 </span>
               </Link>
@@ -273,7 +273,7 @@ export default function PolicyPage() {
                 to="/"
                 className="w-full flex align-items-center justify-content-center mb-5 py-5 border-300 border-bottom-1"
               >
-                <Button>Trang chá»§</Button>
+                <Button>Trang chủ</Button>
               </Link>
             </div>
           </div>
