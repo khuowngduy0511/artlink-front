@@ -52,7 +52,7 @@ const DepositCoin: React.FC<{ isVisible: boolean; onHide: () => void }> = ({
         }
       } else if (selectedMethod?.code === "ZALOPAY") {
         // Keep ZaloPay logic for backward compatibility
-        const currentUrl = window.location.href;
+        // const currentUrl = window.location.href;
         const response = await DepositCoins(amount);
         if (response.returnCode === 1) {
           window.location.href = response.orderUrl;

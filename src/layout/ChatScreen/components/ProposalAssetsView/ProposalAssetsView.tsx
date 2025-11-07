@@ -8,7 +8,7 @@ import PaymentConfirmation from "../../../../components/PaymentConfirmation";
 import { ProposalAssetItemType, ProposalStateToolsType } from "../../ChatRelatedTypes";
 import "./ProposalAssetsView.scss";
 import { numberToXu } from "../../../../util/CurrencyHandle";
-import { GetPropoAssetLink } from "../../services/ProposalServices";
+// import { GetPropoAssetLink } from "../../services/ProposalServices";
 import { toast } from "react-toastify";
 // ---------------------------------------------------------
 

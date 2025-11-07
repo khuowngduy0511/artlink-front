@@ -1,4 +1,4 @@
-﻿import { Button } from "primereact/button";
+import { Button } from "primereact/button";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
@@ -282,3 +282,4 @@ export default function PolicyPage() {
     </>
   );
 }
+

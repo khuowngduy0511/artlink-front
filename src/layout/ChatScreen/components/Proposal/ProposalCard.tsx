@@ -25,7 +25,7 @@ export default function ProposalCard({ ...props }: ProposalCardProps) {
     createdOn,
     acceptCallback,
     denyCallback,
-    editCallback,
+    // editCallback,
     cancelCallback,
   } = props;
   const [confirmVisible, setConfirmVisible] = useState(false);
