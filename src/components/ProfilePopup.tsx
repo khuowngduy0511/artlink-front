@@ -17,14 +17,14 @@ const ProfilePopup: React.FC<ProfilePopupProps> = ({ fullname, email, avatar }) 
   const profileId = getAuthInfo()?.id;
 
   const handleProfileClick = () => {
-    navigate(`/account/${profileId}/artwork`);
+    navigate(`/account/${profileId}/artlink`);
   };
 
   const authInfo = getAuthInfo();
   const isAdmin = authInfo?.role === "Admin" || authInfo?.role === "Moderator";
 
   const items = [
-    <Link key="artwork" className="link" to={`/account/${profileId}/artwork`}>
+    <Link key="artwork" className="link" to={`/account/${profileId}/artlink`}>
       Quản lý tác phẩm
     </Link>,
     <Link key="collection" className="link" to={`/account/${profileId}/collection`}>
@@ -43,10 +43,10 @@ const ProfilePopup: React.FC<ProfilePopupProps> = ({ fullname, email, avatar }) 
       Tài nguyên đã mua
     </Link>,
     ...(isAdmin ? [
-      <Link key="moderation" className="link admin-link" to="/admin/moderation/artworks">
+      <Link key="moderation" className="link admin-link" to="/admin/moderation">
         <i className="pi pi-shield" /> Duyệt tác phẩm
       </Link>,
-      <Link key="withdrawal" className="link admin-link" to="/admin/withdrawal-requests">
+      <Link key="withdrawal" className="link admin-link" to="/admin/withdrawal">
         <i className="pi pi-money-bill" /> Quản lý rút tiền
       </Link>,
     ] : []),

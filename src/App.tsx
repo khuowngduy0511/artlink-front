@@ -45,6 +45,7 @@ import ArtworkModerationScreen from "./layout/ArtworkModerationScreen/ArtworkMod
 
 import { getAuthInfo, removeAuthInfo } from "./util/AuthUtil";
 import NotFoundPage from "./pages/404";
+import Forbidden401 from "./pages/401";
 import SearchScreen from "./layout/SearchScreen/SearchScreen";
 import { AuthProvider } from "./auth/context/auth-provider";
 import UnknownErrorPage from "./pages/unknown";
@@ -161,6 +162,7 @@ function App() {
               <Route path="/hire" element={<HireScreen isLogin={isLogin} />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/explore" element={<SearchScreen />} />
+              <Route path="/401" element={<Forbidden401 />} />
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/error" element={<UnknownErrorPage />} />
               <Route path="/error-internal-server" element={<InternalServerErrPage />} />
