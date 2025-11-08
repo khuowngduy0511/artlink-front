@@ -1,5 +1,7 @@
-import axios from "./useAxios";
+import axios from "axios";
 import { getAuthInfo, setNewAccessToken } from "../util/AuthUtil";
+
+const BASE_URL = process.env.REACT_APP_REAL_API_BASE_URL || "https://dummyjson.com";
 
 const useRefreshToken = () => {
   const refresh = async () => {
@@ -12,7 +14,9 @@ const useRefreshToken = () => {
 
     try {
       const body = { refreshToken: authInfo.refreshToken }; // Send the actual refresh token
-      const response = await axios.post("/auth/refresh-token", body);
+      
+      // Use plain axios (NO interceptor) to prevent infinite loop
+      const response = await axios.post(`${BASE_URL}/auth/refresh-token`, body);
       
       if (response?.data?.isSuccess) {
         const newAccessToken = response?.data?.result?.accessToken;
