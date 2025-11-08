@@ -10,6 +10,8 @@ import { Image } from "primereact/image";
 import axios from "axios";
 import "./ArtworkModerationScreen.scss";
 
+const API_URL = process.env.REACT_APP_REAL_API_BASE_URL;
+
 interface Artwork {
   id: string;
   title: string;
@@ -49,7 +51,7 @@ export default function ArtworkModerationScreen() {
         return;
       }
       
-      const response = await axios.get("http://localhost:5224/api/moderation/artworks", {
+      const response = await axios.get(`${API_URL}/moderation/artworks`, {
         headers: { Authorization: `Bearer ${token}` },
         params: { State: "Waiting" }, // Chỉ lấy artwork đang chờ duyệt
       });
@@ -103,7 +105,7 @@ export default function ArtworkModerationScreen() {
       }
       
       await axios.put(
-        `http://localhost:5224/api/moderation/artworks/${selectedArtwork.id}/state`,
+        `${API_URL}/moderation/artworks/${selectedArtwork.id}/state`,
         { state: action, note: note || undefined },
         { headers: { Authorization: `Bearer ${token}` } }
       );

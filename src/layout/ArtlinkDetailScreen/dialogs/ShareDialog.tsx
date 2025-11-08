@@ -12,7 +12,7 @@ type Props = {
 
 export default function ShareDialog({ ...props }: Props) {
   props.visible = props.visible || false;
-  const currentURL = `https://artworkia-4f397.web.app/artlink/${props.awId}`;
+  const currentURL = `https://artlink-front.vercel.app/artlink/${props.awId}`;
 
   const [isCopySuccess, setIsCopySuccess] = useState(false);
 

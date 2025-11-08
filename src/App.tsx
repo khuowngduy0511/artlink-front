@@ -21,6 +21,7 @@ import HomeScreen from "./layout/HomeScreen/HomeScreen";
 import ProfileScreen from "./layout/ProfileScreen/ProfileScreen";
 import LoginScreen from "./layout/LoginScreen/LoginScreen";
 import RequireAuth from "./auth/RequireAuth";
+import RequireAdminAuth from "./auth/RequireAdminAuth";
 import EditProfileTestPage from "./layout/TestingSreen/EditProfileTestPage";
 import RegisterScreen from "./layout/RegisterScreen/RegisterScreen";
 import ArtlinkDetail from "./layout/ArtlinkDetailScreen/ArtlinkDetail";
@@ -39,6 +40,8 @@ import ProfileSettings from "./layout/ProfileSettingsScreen/ProfileSettingsScree
 import ChatScreen from "./layout/ChatScreen/ChatScreen";
 import CollectionDetailScreen from "./layout/CollectionDetailScreen/CollectionDetailScreen";
 import HireScreen from "./layout/HireScreen/HireScreen";
+import AdminWithdrawalDashboard from "./pages/admin/AdminWithdrawalDashboard";
+import ArtworkModerationScreen from "./layout/ArtworkModerationScreen/ArtworkModerationScreen";
 
 import { getAuthInfo, removeAuthInfo } from "./util/AuthUtil";
 import NotFoundPage from "./pages/404";
@@ -136,6 +139,11 @@ function App() {
                 <Route path="/chat" element={<ChatScreen />} />
                 <Route path="/chat/:id" element={<ChatScreen />} />
                 <Route path="/my-requests" element={<RequestScreen isLogin={isLogin} />} />
+              </Route>
+              <Route element={<RequireAdminAuth />}>
+                {/* Admin/Moderator only routes */}
+                <Route path="/admin/withdrawal" element={<AdminWithdrawalDashboard />} />
+                <Route path="/admin/moderation" element={<ArtworkModerationScreen />} />
               </Route>
               <Route path="/account/:id" element={<ProfileScreen isLogin={isLogin} />}>
                 <Route path="/account/:id/" element={<ArtlinksView />} />

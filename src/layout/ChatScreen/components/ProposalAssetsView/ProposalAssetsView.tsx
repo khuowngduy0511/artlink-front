@@ -33,7 +33,7 @@ export default function ProposalAssetsView({ data, proposalStateTools }: Props) 
 
   const handleDownloadAsset = async (assetId: string) => {
     // Open the new file endpoint which will download/display the file
-    const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5224/api";
+    const API_URL = process.env.REACT_APP_REAL_API_BASE_URL || "https://artlink-back.onrender.com/api";
     const token = authenticationInfo?.accessToken;
     
     // Use fetch to download with authorization header

@@ -75,29 +75,42 @@ const WalletView: React.FC = () => {
         <>
           <div className="wallet-info-section">
             <h1 className="wallet-title">Thông tin ví</h1>
-            {wallet?.withdrawInformation ? (
-              <>
-                <h2 className="w-full text-center">
-                  Phương thức:{" "}
-                  {wallet?.withdrawMethod === "Zalopay" ? (
-                    <img style={{ width: "100px" }} src={zalopayLogo} alt="" />
-                  ) : (
-                    <></>
-                  )}
-                </h2>
-                <h2 className="w-full text-center">
-                  Số điện thoại: <strong className="underline">{wallet?.withdrawInformation}</strong>
-                </h2>
-              </>
+            {wallet?.withdrawInformation || wallet?.bankCode ? (
+              <div className="bank-info-container">
+                {wallet?.bankCode && wallet?.bankName ? (
+                  <div className="bank-card">
+                    <div className="bank-header">
+                      <i className="pi pi-building text-2xl"></i>
+                      <h3 className="bank-name">{wallet.bankName}</h3>
+                    </div>
+                    <div className="bank-details">
+                      <div className="detail-row">
+                        <span className="detail-label">Mã ngân hàng:</span>
+                        <span className="detail-value">{wallet.bankCode}</span>
+                      </div>
+                      <div className="detail-row">
+                        <span className="detail-label">Số tài khoản:</span>
+                        <span className="detail-value font-bold">{wallet.withdrawInformation}</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : wallet?.withdrawMethod === "Zalopay" ? (
+                  <div className="payment-method-card">
+                    <img style={{ width: "120px", margin: "0 auto" }} src={zalopayLogo} alt="ZaloPay" />
+                    <div className="detail-row mt-3">
+                      <span className="detail-label">Số điện thoại:</span>
+                      <span className="detail-value font-bold">{wallet.withdrawInformation}</span>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
             ) : (
-              <>
-                <h2 className="text-center font-bold">
-                  Hãy cập nhật thông tin ví của bạn để trải nghiệm các dịch vụ có trong Artlink nhé!
-                </h2>
-              </>
+              <h2 className="text-center font-bold mt-4">
+                Hãy cập nhật thông tin ví của bạn để trải nghiệm các dịch vụ có trong Artlink nhé!
+              </h2>
             )}
 
-            <div className="w-full flex justify-content-center align-items-center">
+            <div className="w-full flex justify-content-center align-items-center mt-4">
               <Button
                 label="Cập nhật thông tin ví"
                 className="p-button-raised p-button-rounded"

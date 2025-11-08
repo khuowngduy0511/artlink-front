@@ -36,15 +36,16 @@ export type SearchScreenStateType = {
 type Props = {};
 
 export default function SearchScreen({ ...props }: Props) {
+  const urlParams = new URLSearchParams(window.location.search);
   const [state, setState] = useState<SearchScreenStateType>({
-    searchValue: new URLSearchParams(window.location.search).get("value") || "",
+    searchValue: urlParams.get("value") || "",
     tags: [],
     categories: [],
     artworks: [],
     isLoading: false,
     selectedSort: sortOptions[0].code,
     selectedType: "artworks",
-    selectedCategory: undefined,
+    selectedCategory: urlParams.get("categoryId") || undefined,
     isAssets: false,
     isAssetsFree: false,
   });
@@ -134,6 +135,22 @@ export default function SearchScreen({ ...props }: Props) {
   useEffect(() => {
     fetchData();
   }, [state.selectedSort, state.selectedCategory, state.isAssets, state.isAssetsFree]);
+
+  // Watch URL changes to update search params (for tag/category clicks)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryId = urlParams.get("categoryId");
+    const tagId = urlParams.get("tagId");
+    const searchValue = urlParams.get("value");
+    
+    if (categoryId && categoryId !== state.selectedCategory) {
+      setState(prev => ({ ...prev, selectedCategory: categoryId, searchValue: "" }));
+    }
+    // Note: tagId support can be added here if backend supports it
+    if (searchValue && searchValue !== state.searchValue) {
+      setState(prev => ({ ...prev, searchValue }));
+    }
+  }, [window.location.search]);
 
   useEffect(() => {
     if (selectingAw?.id) {

@@ -18,12 +18,12 @@ export async function GetAssetDownloadLinkById(id: string): Promise<string> {
       if (response?.status === 200) {
         return response.data.link;
       } else {
-        return `https://artworkia-4f397.web.app/error?status=${response?.status}&message=${response?.data}`;
+        return `https://artlink-front.vercel.app/error?status=${response?.status}&message=${response?.data}`;
       }
     })
     .catch((error) => {
       console.error(error);
-      return `https://artworkia-4f397.web.app/error?status=${error?.code}&message=${error?.message}`;
+      return `https://artlink-front.vercel.app/error?status=${error?.code}&message=${error?.message}`;
     });
 }
 
