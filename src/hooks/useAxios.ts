@@ -19,9 +19,19 @@ export const axiosPrivate = (() => {
   const requestInterceptor = instance.interceptors.request.use(
     (config) => {
       const authenticationInfo = getAuthInfo();
+      
+      console.log("[AXIOS] Request to:", config.url);
+      console.log("[AXIOS] Has authInfo:", !!authenticationInfo);
+      console.log("[AXIOS] Has accessToken:", !!authenticationInfo?.accessToken);
+      
       // Add Bearer token to requests if not present
       if (!config.headers["Authorization"]) {
-        config.headers["Authorization"] = `Bearer ${authenticationInfo?.accessToken}`;
+        if (authenticationInfo?.accessToken) {
+          config.headers["Authorization"] = `Bearer ${authenticationInfo.accessToken}`;
+          console.log("[AXIOS] Added Authorization header");
+        } else {
+          console.log("[AXIOS] No access token available");
+        }
       }
       return config;
     },

@@ -4,7 +4,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { InputText, Button, Toast, Divider, Image, Password } from "../index";
 import { login, loginWithGoogle } from "../../auth/AuthService";
 import { jwtDecode } from "jwt-decode";
-import { authInfoDataType, setAuthInfo } from "../../util/AuthUtil";
+import { authInfoDataType, setAuthInfo, getAuthInfo } from "../../util/AuthUtil";
 import logotext from "../../assets/logo/logo.png";
 
 import "./LoginScreen.scss";
@@ -27,12 +27,16 @@ const LoginScreen = ({ isLogin, setIsLogin, setAuthInfoChanged }: Props) => {
   const previousPath = location?.state?.from?.pathname;
 
   const handleLoginResponse = (response: any) => {
-    console.log(response);
+    console.log("[LOGIN] Response received:", response);
 
     const { data } = response || {};
     const { userId: id, email, fullname, avatar, accessToken, refreshToken } = data || {};
+    
+    console.log("[LOGIN] Access Token:", accessToken?.substring(0, 50));
+    console.log("[LOGIN] Refresh Token:", refreshToken?.substring(0, 50));
+    
     const decodedAToken = jwtDecode(accessToken) as any;
-    console.log(decodedAToken);
+    console.log("[LOGIN] Decoded Token:", decodedAToken);
     const role = decodedAToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
     const exp = decodedAToken.exp;
 
@@ -48,11 +52,18 @@ const LoginScreen = ({ isLogin, setIsLogin, setAuthInfoChanged }: Props) => {
       aTExp: exp,
     };
 
+    console.log("[LOGIN] Saving to localStorage:", currentUserData);
     setAuthInfo(currentUserData); //set Auth info to LocalStorage
+    
+    // Verify it was saved
+    const saved = getAuthInfo();
+    console.log("[LOGIN] Verified saved data:", saved);
+    console.log("[LOGIN] Access token saved correctly:", saved?.accessToken === accessToken);
+    console.log("[LOGIN] Refresh token saved correctly:", saved?.refreshToken === refreshToken);
+    
     setAuthInfoChanged(currentUserData); //notify to state at App.tsx that the user has logged in
     setIsLogin(!!id); // Assuming login is considered valid if 'id' exists
     setIsLoading(false);
-    console.log({ ...currentUserData });
 
     toast.current.show({
       severity: "success",
