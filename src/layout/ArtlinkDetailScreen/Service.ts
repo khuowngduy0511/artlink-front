@@ -164,11 +164,37 @@ export async function fetchCommentsForArtwork(artworkId: string): Promise<Commen
     const response = await axios.get(`${BASE_URL}/artworks/${artworkId}/comments`);
     console.log("response.data", response.data);
 
-    return response.data?.map((comment: any) => ({
-      id: comment.id,
-      createdBy: comment.createdBy,
-      content: comment.content,
-    }));
+    // Map comments with all fields including replies
+    const mapComment = (comment: any): CommentType => {
+      // Handle createdBy - can be object or string
+      let createdBy: CommentType['createdBy'];
+      if (typeof comment.createdBy === 'string') {
+        createdBy = comment.createdBy;
+      } else if (comment.createdBy) {
+        createdBy = {
+          id: comment.createdBy.id || "",
+          fullname: comment.createdBy.fullname || "",
+          avatar: comment.createdBy.avatar || "",
+        };
+      } else {
+        createdBy = {
+          id: "",
+          fullname: "",
+          avatar: "",
+        };
+      }
+
+      return {
+        id: comment.id,
+        createdBy: createdBy,
+        createdOn: comment.createdOn || new Date().toISOString(),
+        content: comment.content || "",
+        replies: comment.replies?.map((reply: any) => mapComment(reply)) || [],
+        replyCount: comment.replyCount || 0,
+      };
+    };
+
+    return response.data?.map(mapComment) || [];
   } catch (error) {
     console.error("Error fetching comments:", error);
     throw new Error(`Error fetching comments: ${error}`);

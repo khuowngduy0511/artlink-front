@@ -24,6 +24,8 @@ export type CommentType = {
       };
   createdOn: string;
   content: string;
+  replies?: CommentType[];
+  replyCount?: number;
 };
 
 export type AssetType = {
