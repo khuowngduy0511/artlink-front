@@ -111,7 +111,7 @@ export default function ArtlinkDetail() {
       if (closeSocket) {
         console.log('[ArtlinkDetail] Cleaning up WebSocket connection');
         closeSocket();
-        setCloseSocket(null);
+        setCloseSocket(undefined);
       }
     };
   }, []);

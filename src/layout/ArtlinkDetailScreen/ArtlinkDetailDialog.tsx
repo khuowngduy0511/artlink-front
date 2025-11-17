@@ -108,7 +108,7 @@ export default function ArtworkDetailDialog(props: Props) {
       if (closeSocket) {
         console.log('[ArtlinkDetailDialog] Cleaning up WebSocket connection');
         closeSocket();
-        setCloseSocket(null);
+        setCloseSocket(undefined);
       }
     };
   }, [data, visible]);
