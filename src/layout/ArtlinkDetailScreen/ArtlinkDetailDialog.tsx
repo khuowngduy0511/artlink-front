@@ -50,12 +50,20 @@ export default function ArtworkDetailDialog(props: Props) {
 
   // Get Comments data
   const fetchComments = () => {
+    // Validate artworkId before creating WebSocket connection
+    if (!data?.id || data.id === 'undefined') {
+      console.warn('[ArtlinkDetailDialog] Skipping WebSocket connection: artworkId is invalid', data?.id);
+      return;
+    }
+
+    console.log(`[ArtlinkDetailDialog] Creating WebSocket for artworkId: ${data.id}`);
+    
     if (!closeSocket) {
-      const cleanup = fetchCommentsForArtlinkRealTime(data?.id, setComments);
+      const cleanup = fetchCommentsForArtlinkRealTime(data.id, setComments);
       setCloseSocket(() => cleanup);
     } else {
       closeSocket();
-      const cleanup = fetchCommentsForArtlinkRealTime(data?.id, setComments);
+      const cleanup = fetchCommentsForArtlinkRealTime(data.id, setComments);
       setCloseSocket(() => cleanup);
     }
   };
@@ -89,9 +97,21 @@ export default function ArtworkDetailDialog(props: Props) {
   };
 
   useEffect(() => {
-    fetchComments();
-    console.log(currentAwDetail);
-  }, [data]);
+    // Only fetch comments when dialog is visible and data is available
+    if (visible && data?.id) {
+      fetchComments();
+      console.log('[ArtlinkDetailDialog] useEffect - currentAwDetail:', currentAwDetail);
+    }
+
+    // Cleanup: close WebSocket when dialog closes or component unmounts
+    return () => {
+      if (closeSocket) {
+        console.log('[ArtlinkDetailDialog] Cleaning up WebSocket connection');
+        closeSocket();
+        setCloseSocket(null);
+      }
+    };
+  }, [data, visible]);
 
   return (
     <Dialog {...dialogProperties}>

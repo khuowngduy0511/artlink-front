@@ -216,12 +216,23 @@ export function fetchCommentsForArtlinkRealTime(
   artworkId: string,
   setComments: Dispatch<SetStateAction<CommentType[]>>
 ): () => void {
+  // Validate artworkId before creating WebSocket connection
+  if (!artworkId || artworkId === 'undefined' || artworkId.trim() === '') {
+    console.error('[fetchCommentsForArtlinkRealTime] artworkId is invalid, cannot create WebSocket:', artworkId);
+    // Return a no-op cleanup function
+    return () => {
+      console.warn('[fetchCommentsForArtlinkRealTime] No WebSocket to close (artworkId was invalid)');
+    };
+  }
+
   const url = `${WS_URL}/v2/artworks/${artworkId}/comments/ws?pageNumber=1&pageSize=100`;
+  console.log(`[fetchCommentsForArtlinkRealTime] Creating WebSocket connection to: ${url}`);
+  
   const socket = new WebSocket(url);
   let _tmpComments: CommentType[] = [];
 
   socket.onopen = () => {
-    console.log("WebSocket connection established");
+    console.log("[fetchCommentsForArtlinkRealTime] WebSocket connection established");
     setComments([]);
   };
 
@@ -247,11 +258,11 @@ export function fetchCommentsForArtlinkRealTime(
   };
 
   socket.onclose = () => {
-    console.log("WebSocket connection closed");
+    console.log("[fetchCommentsForArtlinkRealTime] WebSocket connection closed");
   };
 
   socket.onerror = (error) => {
-    console.error("WebSocket error:", error);
+    console.error("[fetchCommentsForArtlinkRealTime] WebSocket error:", error);
   };
 
   return () => {

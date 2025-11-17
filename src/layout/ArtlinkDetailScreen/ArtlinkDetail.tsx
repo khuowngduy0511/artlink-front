@@ -57,6 +57,14 @@ export default function ArtlinkDetail() {
 
   // Get Comments data
   const fetchComments = () => {
+    // Validate id before creating WebSocket connection
+    if (!id || id === 'undefined' || id.trim() === '') {
+      console.warn('[ArtlinkDetail] Skipping WebSocket connection: id is invalid', id);
+      return;
+    }
+
+    console.log(`[ArtlinkDetail] Creating WebSocket for id: ${id}`);
+    
     if (!closeSocket) {
       const cleanup = fetchCommentsForArtlinkRealTime(id, setComments);
       setCloseSocket(() => cleanup);
@@ -93,7 +101,19 @@ export default function ArtlinkDetail() {
 
   useEffect(() => {
     fetchDetail();
-    fetchComments();
+    // Only fetch comments if id is valid
+    if (id && id !== 'undefined' && id.trim() !== '') {
+      fetchComments();
+    }
+
+    // Cleanup: close WebSocket when component unmounts
+    return () => {
+      if (closeSocket) {
+        console.log('[ArtlinkDetail] Cleaning up WebSocket connection');
+        closeSocket();
+        setCloseSocket(null);
+      }
+    };
   }, []);
 
   return (
