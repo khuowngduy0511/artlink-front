@@ -219,53 +219,113 @@ export function fetchCommentsForArtlinkRealTime(
   // Validate artworkId before creating WebSocket connection
   if (!artworkId || artworkId === 'undefined' || artworkId.trim() === '') {
     console.error('[fetchCommentsForArtlinkRealTime] artworkId is invalid, cannot create WebSocket:', artworkId);
+    // Fallback to HTTP API if artworkId is invalid
+    fetchCommentsForArtwork(artworkId).then(setComments).catch((err) => {
+      console.error('[fetchCommentsForArtlinkRealTime] Failed to fetch comments via HTTP:', err);
+    });
     // Return a no-op cleanup function
     return () => {
       console.warn('[fetchCommentsForArtlinkRealTime] No WebSocket to close (artworkId was invalid)');
     };
   }
 
+  const authInfo = getAuthInfo();
   const url = `${WS_URL}/v2/artworks/${artworkId}/comments/ws?pageNumber=1&pageSize=100`;
   console.log(`[fetchCommentsForArtlinkRealTime] Creating WebSocket connection to: ${url}`);
   
   const socket = new WebSocket(url);
   let _tmpComments: CommentType[] = [];
+  let hasReceivedData = false;
+  let isConnected = false;
+  let fallbackTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  // Set timeout to fallback to HTTP if WebSocket doesn't connect within 5 seconds
+  fallbackTimeout = setTimeout(() => {
+    if (!isConnected && !hasReceivedData) {
+      console.warn("[fetchCommentsForArtlinkRealTime] WebSocket connection timeout, falling back to HTTP API");
+      socket.close();
+      fetchCommentsForArtwork(artworkId)
+        .then(setComments)
+        .catch((err) => {
+          console.error("[fetchCommentsForArtlinkRealTime] Failed to fetch comments via HTTP fallback:", err);
+        });
+    }
+  }, 5000);
 
   socket.onopen = () => {
     console.log("[fetchCommentsForArtlinkRealTime] WebSocket connection established");
+    isConnected = true;
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout);
+      fallbackTimeout = null;
+    }
+    // Send access token if available (similar to ChatServices)
+    if (authInfo?.accessToken) {
+      socket.send(authInfo.accessToken);
+      console.log("[fetchCommentsForArtlinkRealTime] Sent access token to WebSocket");
+    }
     setComments([]);
   };
 
   socket.onmessage = (event) => {
-    const data = JSON.parse(event.data)?.Items;
-    const comments = data?.map((item: any) => {
-      return {
-        id: item.Id || "",
-        createdBy: {
-          id: item.CreatedBy.Id || "",
-          fullname: item.CreatedBy.Fullname || "",
-          avatar: item.CreatedBy.Avatar || "",
-        },
-        createdOn: item.CreatedOn,
-        content: item.Content || "",
-      };
-    });
+    try {
+      const data = JSON.parse(event.data)?.Items;
+      hasReceivedData = true;
+      if (fallbackTimeout) {
+        clearTimeout(fallbackTimeout);
+        fallbackTimeout = null;
+      }
+      const comments = data?.map((item: any) => {
+        return {
+          id: item.Id || "",
+          createdBy: {
+            id: item.CreatedBy.Id || "",
+            fullname: item.CreatedBy.Fullname || "",
+            avatar: item.CreatedBy.Avatar || "",
+          },
+          createdOn: item.CreatedOn,
+          content: item.Content || "",
+        };
+      });
 
-    if (Array.isArray(comments) && arraysEqual(_tmpComments, comments) === false) {
-      _tmpComments = comments;
-      setComments(comments);
+      if (Array.isArray(comments) && arraysEqual(_tmpComments, comments) === false) {
+        _tmpComments = comments;
+        setComments(comments);
+      }
+    } catch (error) {
+      console.error("[fetchCommentsForArtlinkRealTime] Error parsing WebSocket message:", error);
     }
   };
 
   socket.onclose = () => {
     console.log("[fetchCommentsForArtlinkRealTime] WebSocket connection closed");
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout);
+      fallbackTimeout = null;
+    }
   };
 
   socket.onerror = (error) => {
     console.error("[fetchCommentsForArtlinkRealTime] WebSocket error:", error);
+    // Fallback to HTTP API if WebSocket fails and we haven't received data
+    if (!hasReceivedData && !isConnected) {
+      if (fallbackTimeout) {
+        clearTimeout(fallbackTimeout);
+        fallbackTimeout = null;
+      }
+      console.log("[fetchCommentsForArtlinkRealTime] Falling back to HTTP API for comments");
+      fetchCommentsForArtwork(artworkId)
+        .then(setComments)
+        .catch((err) => {
+          console.error("[fetchCommentsForArtlinkRealTime] Failed to fetch comments via HTTP fallback:", err);
+        });
+    }
   };
 
   return () => {
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout);
+    }
     socket.close();
   };
 }
