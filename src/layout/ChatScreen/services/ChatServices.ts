@@ -23,7 +23,7 @@ let currentUserId = authenticationInfo?.id ? authenticationInfo?.id : "unknown";
  */
 export async function GetChatboxesCurrentAccount(): Promise<ChatboxItemType[]> {
   return axiosPrivate
-    .get("/accounts/chatboxs")
+    .get("/accounts/ChatBoxs")
     .then((response) =>
       response.data.map((item: any) => {
         const _acc1 = item?.account_1;
@@ -73,7 +73,7 @@ export async function GetChatboxesCurrentAccount(): Promise<ChatboxItemType[]> {
 export async function GetChatboxesCurrentAccountRealtime(
   setState: Dispatch<React.SetStateAction<ChatboxItemType[]>>
 ): Promise<() => void> {
-  const url = `${WS_URL}/api/accounts/${authenticationInfo?.id}/chatboxs/ws`;
+  const url = `${WS_URL}/api/accounts/${authenticationInfo?.id}/ChatBoxs/ws`;
   const socket = new WebSocket(url);
 
   let _tmpChatboxes: ChatboxItemType[] = [];

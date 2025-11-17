@@ -124,7 +124,7 @@ export async function GetRequestById(requestId: string): Promise<RequestItemType
  */
 export async function GetRequestsByChatboxId(chatboxId: string): Promise<RequestItemType[]> {
   return axiosPrivate
-    .get(`/chatboxs/${chatboxId}/requests`)
+    .get(`/ChatBoxs/${chatboxId}/requests`)
     .then((response) => {
       if (Array.isArray(response?.data)) {
         return response.data.map((item: any) => mapRequestData(item));
