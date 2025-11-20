@@ -61,6 +61,8 @@ import {
   ValidateAccessToken,
 } from "./service";
 import VerifyEmailScreen from "./layout/VerifyEmailScreen/VerifyEmailScreen";
+import PaymentSuccess from "./pages/payment/PaymentSuccess";
+import PaymentCancel from "./pages/payment/PaymentCancel";
 
 function App() {
   addLocale("vi", vi.vi);
@@ -162,6 +164,8 @@ function App() {
               <Route path="/hire" element={<HireScreen isLogin={isLogin} />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/explore" element={<SearchScreen />} />
+              <Route path="/payment/success" element={<PaymentSuccess />} />
+              <Route path="/payment/cancel" element={<PaymentCancel />} />
               <Route path="/401" element={<Forbidden401 />} />
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/error" element={<UnknownErrorPage />} />

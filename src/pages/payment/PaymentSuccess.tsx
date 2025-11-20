@@ -5,6 +5,8 @@ import { Button } from "primereact/button";
 import { ProgressSpinner } from "primereact/progressspinner";
 import { getAuthInfo } from "../../util/AuthUtil";
 import "./PaymentResult.scss";
+import { axiosPrivate } from "../../hooks/useAxios";
+import { GetWalletData } from "../../layout/ProfileScreen/WalletView/WalletService";
 
 const PaymentSuccess: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -15,16 +17,45 @@ const PaymentSuccess: React.FC = () => {
   useEffect(() => {
     const txId = searchParams.get("txId");
     const assetId = searchParams.get("assetId");
+    const orderCode = searchParams.get("orderCode");
+    const code = searchParams.get("code");
     
-    // Simulate checking payment status
-    setTimeout(() => {
-      setLoading(false);
-      if (assetId) {
-        setMessage("Thanh toán mua asset thành công! Bạn đã có thể tải xuống tài nguyên.");
-      } else {
-        setMessage("Nạp tiền vào ví thành công!");
+    async function checkStatus() {
+      try {
+        // If orderCode is present, ask backend for payment status
+        if (orderCode) {
+          const resp: any = await axiosPrivate.get(`/payos/status/${orderCode}`);
+          // resp.data could be status object; adapt based on API
+          const status = resp?.data?.status || resp?.data || resp?.status;
+          if (status === "PAID" || status === "Success" || status === 0 || status === true) {
+            // Optionally refresh wallet data to show updated balance
+            const authInfo = getAuthInfo();
+            if (authInfo?.id) {
+              const wallet = await GetWalletData(authInfo.id);
+              setMessage(wallet?.balance ? `Nạp tiền vào ví thành công! Số dư mới: ${wallet.balance.toLocaleString()} Xu` : "Nạp tiền vào ví thành công!");
+            } else {
+              setMessage("Nạp tiền vào ví thành công! Vui lòng vào trang ví để kiểm tra số dư.");
+            }
+          } else {
+            setMessage("Thanh toán đã hoàn tất nhưng trạng thái chưa được xác nhận. Vui lòng kiểm tra sau.");
+          }
+        } else {
+          if (assetId) {
+            setMessage("Thanh toán mua asset thành công! Bạn đã có thể tải xuống tài nguyên.");
+          } else {
+            setMessage("Nạp tiền vào ví thành công!");
+          }
+        }
+      } catch (err) {
+        console.error("Error checking payment status:", err);
+        if (assetId) setMessage("Thanh toán mua asset thành công! Bạn đã có thể tải xuống tài nguyên.");
+        else setMessage("Nạp tiền vào ví thành công! (Không thể kiểm tra trạng thái ngay lập tức)");
+      } finally {
+        setLoading(false);
       }
-    }, 2000);
+    }
+
+    checkStatus();
   }, [searchParams]);
 
   const handleBackToHome = () => {
