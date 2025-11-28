@@ -13,50 +13,83 @@ const PaymentSuccess: React.FC = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
+  const [polling, setPolling] = useState(true);
 
   useEffect(() => {
     const txId = searchParams.get("txId");
-    const assetId = searchParams.get("assetId");
-    const orderCode = searchParams.get("orderCode");
-    const code = searchParams.get("code");
     
-    async function checkStatus() {
-      try {
-        // If orderCode is present, ask backend for payment status
-        if (orderCode) {
-          const resp: any = await axiosPrivate.get(`/payos/status/${orderCode}`);
-          // resp.data could be status object; adapt based on API
-          const status = resp?.data?.status || resp?.data || resp?.status;
-          if (status === "PAID" || status === "Success" || status === 0 || status === true) {
-            // Optionally refresh wallet data to show updated balance
-            const authInfo = getAuthInfo();
-            if (authInfo?.id) {
-              const wallet = await GetWalletData(authInfo.id);
-              setMessage(wallet?.balance ? `Nạp tiền vào ví thành công! Số dư mới: ${wallet.balance.toLocaleString()} Xu` : "Nạp tiền vào ví thành công!");
-            } else {
-              setMessage("Nạp tiền vào ví thành công! Vui lòng vào trang ví để kiểm tra số dư.");
-            }
-          } else {
-            setMessage("Thanh toán đã hoàn tất nhưng trạng thái chưa được xác nhận. Vui lòng kiểm tra sau.");
-          }
-        } else {
-          if (assetId) {
-            setMessage("Thanh toán mua asset thành công! Bạn đã có thể tải xuống tài nguyên.");
-          } else {
-            setMessage("Nạp tiền vào ví thành công!");
-          }
-        }
-      } catch (err) {
-        console.error("Error checking payment status:", err);
-        if (assetId) setMessage("Thanh toán mua asset thành công! Bạn đã có thể tải xuống tài nguyên.");
-        else setMessage("Nạp tiền vào ví thành công! (Không thể kiểm tra trạng thái ngay lập tức)");
-      } finally {
-        setLoading(false);
-      }
+    if (!txId) {
+      setMessage("Thiếu mã giao dịch");
+      setLoading(false);
+      setPolling(false);
+      return;
     }
 
-    checkStatus();
-  }, [searchParams]);
+    let pollCount = 0;
+    const maxPolls = 20; // Poll tối đa 20 lần (20 giây)
+    
+    const pollTransactionStatus = async () => {
+      try {
+        pollCount++;
+        
+        // Gọi API kiểm tra transaction status
+        const resp: any = await axiosPrivate.get(`/payos/transaction/${txId}/status`);
+        
+        if (resp?.data?.status === "Success") {
+          // Transaction đã được webhook xử lý thành công
+          setPolling(false);
+          
+          // Lấy thông tin ví mới
+          const authInfo = getAuthInfo();
+          if (authInfo?.id) {
+            const wallet = await GetWalletData(authInfo.id);
+            setMessage(
+              wallet?.balance 
+                ? `Nạp tiền thành công! Số dư hiện tại: ${wallet.balance.toLocaleString()} Xu` 
+                : "Nạp tiền thành công!"
+            );
+          } else {
+            setMessage("Nạp tiền thành công! Vui lòng vào trang ví để kiểm tra số dư.");
+          }
+          setLoading(false);
+        } else if (resp?.data?.status === "Failed" || resp?.data?.status === "Cancelled") {
+          // Transaction thất bại
+          setPolling(false);
+          setMessage("Giao dịch thất bại. Vui lòng thử lại.");
+          setLoading(false);
+        } else if (pollCount >= maxPolls) {
+          // Đã poll quá số lần cho phép
+          setPolling(false);
+          setMessage("Đang xử lý thanh toán. Vui lòng kiểm tra lại sau ít phút hoặc xem lịch sử giao dịch.");
+          setLoading(false);
+        }
+        // Nếu status vẫn là InProgress, tiếp tục poll
+      } catch (err) {
+        console.error("Error checking transaction status:", err);
+        
+        if (pollCount >= maxPolls) {
+          setPolling(false);
+          setMessage("Không thể kiểm tra trạng thái giao dịch. Vui lòng kiểm tra lại trong mục lịch sử giao dịch.");
+          setLoading(false);
+        }
+      }
+    };
+
+    // Poll lần đầu ngay lập tức
+    pollTransactionStatus();
+
+    // Setup interval để poll mỗi giây
+    const intervalId = setInterval(() => {
+      if (polling) {
+        pollTransactionStatus();
+      }
+    }, 1000);
+
+    // Cleanup
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [searchParams, polling]);
 
   const handleBackToHome = () => {
     navigate("/");
@@ -75,6 +108,9 @@ const PaymentSuccess: React.FC = () => {
           <div className="text-center">
             <ProgressSpinner />
             <h3 className="mt-3">Đang xác nhận thanh toán...</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Vui lòng đợi trong giây lát, hệ thống đang xử lý giao dịch của bạn
+            </p>
           </div>
         </Card>
       </div>
