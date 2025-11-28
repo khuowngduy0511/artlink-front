@@ -89,7 +89,7 @@ export async function GetGeneralTransactionHistoryData(accountId: string): Promi
         walletHistory: item.walletHistory
           ? {
               id: item.walletHistory.id,
-              account: item.walletHistory.acocunt
+              account: item.walletHistory.account
                 ? {
                     id: item.walletHistory.account.id,
                     username: item.walletHistory.account.username,
