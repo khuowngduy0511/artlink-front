@@ -10,11 +10,14 @@ import InputForm from "./InputForm/InputForm";
 
 import "./PostArtlinkScreen.scss";
 import { translate2Vietnamese } from "../../util/TextHandle";
+import { getAuthInfo } from "../../util/AuthUtil";
 // --------------------------------------------------------
 type Props = {};
 
 export default function PostArtlinkScreen({ ...props }: Props) {
   const navigate = useNavigate();
+  const authenticationInfo = getAuthInfo();
+  const currentUserId = authenticationInfo?.id || "";
   const [data, setData] = useState({} as any);
   const [error, setError] = useState(0 as any); //0: first compile; null: success; !=null: error
   const [success, setSuccess] = useState(0 as any); //0: first compile; null: error; !=null: success
@@ -53,7 +56,7 @@ export default function PostArtlinkScreen({ ...props }: Props) {
           detail: "Bài đăng đã được đăng tải lên hệ thống.",
         });
         setTimeout(() => {
-          navigate(`/artwork/${success?.data?.id}`);
+          navigate(`/account/${currentUserId}/artlink`);
         }, 2000);
       }
     }
